@@ -76,7 +76,7 @@
             </form>
 
             <div class="text-center mt-5 text-small">
-              Made with ❤ by SENSASIQ
+              Made with ❤ by UNPKediri
               <div class="mt-2">
                 <a href="#">Kebijakan Privasi</a>
                 <div class="bullet"></div>

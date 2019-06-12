@@ -10,13 +10,4 @@ class Profil extends CI_Controller {
 	public function index(){
     	$this->load->view('profil');
 	}
-
-	public function update(){
-		$response = $this->DosenM->update_profil(
-			$this->put('nip'),
-			$this->put('nama_dosen'),
-			$this->put('password');
-		);
-		$this->response($response);
-	}
 }

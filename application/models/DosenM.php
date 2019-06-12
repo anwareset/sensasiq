@@ -2,6 +2,9 @@
 // extends class Model
 class DosenM extends CI_Model{
 
+
+///////////////////////// CRUD API  /////////////////////////
+
   // response jika field ada yang kosong
   public function empty_response(){
     $response['status']=502;
@@ -134,25 +137,6 @@ class DosenM extends CI_Model{
         $response['message']='Data dosen gagal diubah.';
         return $response;
       }
-    }
-  }
-
-  public function update_profil($nip, $nama_dosen, $password){
-    if (empty($nip) || empty($nama_dosen || empty($password))) {
-      $this->session->set_flashdata('message', 'Data gagal diperbarui.');
-      $this->load->view('profil');
-    } else {
-      $where = array(
-        "nip"=>$nip
-      );
-      $set = array(
-        "nama_dosen"=>$nama_dosen,
-        "password"=>$password
-      );
-      $this->db->where($where);
-      $update = $this->db->update("tbdosen",$set);
-      $this->session->set_flashdata('message', 'Data berhasil diperbarui.');
-      $this->load->view('profil');
     }
   }
 
