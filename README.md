@@ -18,9 +18,9 @@ Repositori ini adalah salah satu bagian dari repositori pengembangan SENSASIQ. P
 # REQUIREMENTS:
 * PHP versi 7.x atau lebih tinggi.
 * MariaDB atau MySQL.
-* Web Server seperti Apache atau NGINX
+* Web Server seperti <b>Apache</b> atau <b>NGINX</b>.
 
 # INSTALLATION:
-1) Clone atau Download dan extract atau taruh pada direktori web (htdocs atau /var/www/html/)
-2) Buat sebuah database dengan nama 'sensasiq' tanpa tanda petik, kemudian import file sensasiq.sql
+1) Clone atau Download dan extract atau taruh pada direktori web (<b>htdocs</b> atau <b>/var/www/html/</b>)
+2) Buat sebuah database dengan nama <b>sensasiq</b>, kemudian import file <b>sensasiq.sql</b>
 3) Sesuaikan password user DBMS dengan konfigurasi CodeIgniter
