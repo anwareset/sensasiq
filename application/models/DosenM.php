@@ -10,6 +10,18 @@ class DosenM extends CI_Model{
     return $response;
   }
 
+  // menampilkan data dosen untuk profile page
+  public function tampildosen($nip){
+    $where = array(
+      "nip"=>$nip
+    );
+    $this->db->where($where);
+    $result = $this->db->get('tbdosen')->row();
+    if($result){
+      return $result;
+    }
+  }
+
   // function untuk insert data ke tabel tbdosen
   public function add_dosen($nip, $nama_dosen, $password){
     if(empty($nama_dosen) || empty($nip) || empty($password)){
@@ -44,7 +56,7 @@ class DosenM extends CI_Model{
     return $response;
   }
 
-  // mengambil data dosen
+  // mengambil data dosen tertentu berdasarkan nip
   public function the_dosen($nip){
     if($nip == ''){
       $all = $this->db->get("tbdosen")->result();
@@ -124,6 +136,26 @@ class DosenM extends CI_Model{
       }
     }
   }
+
+  public function update_profil($nip, $nama_dosen, $password){
+    if (empty($nip) || empty($nama_dosen || empty($password))) {
+      $this->session->set_flashdata('message', 'Data gagal diperbarui.');
+      $this->load->view('profil');
+    } else {
+      $where = array(
+        "nip"=>$nip
+      );
+      $set = array(
+        "nama_dosen"=>$nama_dosen,
+        "password"=>$password
+      );
+      $this->db->where($where);
+      $update = $this->db->update("tbdosen",$set);
+      $this->session->set_flashdata('message', 'Data berhasil diperbarui.');
+      $this->load->view('profil');
+    }
+  }
+
 }
 
 ?>

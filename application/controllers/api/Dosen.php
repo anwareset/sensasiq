@@ -21,7 +21,7 @@ class Dosen extends REST_Controller{
     $this->response($response);
   }
 
-  // untusoen menambah dosen menggunakan method post
+  // untuk menambah dosen menggunakan method post
   public function add_post(){
     $response = $this->DosenM->add_dosen(
         $this->post('nip'),
