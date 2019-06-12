@@ -24,3 +24,4 @@ Repositori ini adalah salah satu bagian dari repositori pengembangan SENSASIQ. P
 1) Clone atau Download dan extract atau taruh pada direktori web (<b>htdocs</b> atau <b>/var/www/html/</b>)
 2) Buat sebuah database dengan nama <b>sensasiq</b>, kemudian import file <b>sensasiq.sql</b>
 3) Sesuaikan password user DBMS dengan konfigurasi CodeIgniter
+4) Akses web melalui <b>http://localhost/sensasiq/</b>
