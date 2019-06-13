@@ -42,12 +42,12 @@
 									<div class="row">
 										<div class="col">
 											<div class="form-group">
-												<label for="disableinput">Nomor Induk Pegawai</label>
-													<input type="text" class="form-control" id="disableinput" placeholder="<?php echo $this->session->nip; ?>" name="nip" disabled>
+												<label>Nomor Induk Pegawai</label>
+													<input type="text" class="form-control" name="nip" value="<?php echo $this->session->nip; ?>" readonly="readonly" />
 											</div>
 											<div class="form-group">
 												<label>Nama Lengkap</label>
-												<input type="text" class="form-control" id="disableinput" name="nama_dosen" placeholder="<?php echo $this->session->nama_dosen; ?>" >
+												<input type="text" class="form-control" name="nama_dosen" value="<?php echo $this->session->nama_dosen; ?>" >
 											</div>
 
 											</div>
@@ -61,7 +61,7 @@
 												<input type="password" class="form-control" id="password" name="password2" placeholder="Masukkan kata sandi Anda kembali">
 											</div>
 											<div class="form-group float-right">
-												<button type="submit" class="btn btn-primary">Ubah</button>
+												<button type="submit" value="Kirim" name="btnUbah" class="btn btn-primary">Ubah</button>
 												<span style="padding: 5px"></span>
 												<input type="button" class="btn btn-primary btn-border" onclick="location.href='<?php echo base_url(`dashboard`) ?>';" value="Batal">
 											</div>

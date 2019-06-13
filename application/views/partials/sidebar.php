@@ -7,8 +7,8 @@
 						<div class="info">
 							<a data-toggle="collapse" href="#collapseExample" aria-expanded="true">
 								<span>
-									Hizrian
-									<span class="user-level">Administrator</span>
+									<?php echo $this->session->nama_dosen; ?>
+									<span class="user-level">Dosen</span>
 									<span class="caret"></span>
 								</span>
 							</a>
@@ -17,18 +17,8 @@
 							<div class="collapse in" id="collapseExample">
 								<ul class="nav">
 									<li>
-										<a href="#profile">
-											<span class="link-collapse">My Profile</span>
-										</a>
-									</li>
-									<li>
-										<a href="#edit">
+										<a href="<?php echo base_url('profil') ?>">
 											<span class="link-collapse">Edit Profile</span>
-										</a>
-									</li>
-									<li>
-										<a href="#settings">
-											<span class="link-collapse">Settings</span>
 										</a>
 									</li>
 								</ul>

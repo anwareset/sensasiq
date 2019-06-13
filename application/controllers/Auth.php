@@ -28,8 +28,7 @@ class Auth extends CI_Controller {
         	$session = array(
         		'authenticated'	=>	TRUE, 
         		'nip'			=>	$user->nip,
-        		'nama_dosen'	=>	$user->nama_dosen,
-        		'password'		=>	$user->password,
+        		'nama_dosen'	=>	$user->nama_dosen
         	);
 
 	        $this->session->set_userdata($session);

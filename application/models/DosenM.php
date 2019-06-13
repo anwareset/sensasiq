@@ -13,18 +13,6 @@ class DosenM extends CI_Model{
     return $response;
   }
 
-  // menampilkan data dosen untuk profile page
-  public function tampildosen($nip){
-    $where = array(
-      "nip"=>$nip
-    );
-    $this->db->where($where);
-    $result = $this->db->get('tbdosen')->row();
-    if($result){
-      return $result;
-    }
-  }
-
   // function untuk insert data ke tabel tbdosen
   public function add_dosen($nip, $nama_dosen, $password){
     if(empty($nama_dosen) || empty($nip) || empty($password)){
@@ -137,6 +125,32 @@ class DosenM extends CI_Model{
         $response['message']='Data dosen gagal diubah.';
         return $response;
       }
+    }
+  }
+
+///////////////////////// CRUD WEB  /////////////////////////
+
+  // menampilkan data dosen untuk profile page
+  public function tampildosen($nip){
+    $where = array(
+      "nip"=>$nip
+    );
+    $this->db->where($where);
+    $result = $this->db->get('tbdosen')->row();
+    if($result){
+      return $result;
+    }
+  }
+
+  // update profil
+  public function update_profil($data, $nip){
+    $this->db->where('nip', $nip);
+    $exec = $this->db->update("tbdosen", $data);
+    if ($exec) {
+      $this->session->unset_userdata('nama_dosen');
+      $this->session->set_userdata('nama_dosen', $data['nama_dosen']);
+      $this->session->set_flashdata('message', 'Berhasil memperbarui informasi akun.');
+      redirect('profil');
     }
   }
 
