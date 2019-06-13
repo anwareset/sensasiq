@@ -149,8 +149,8 @@ class DosenM extends CI_Model{
     if ($exec) {
       $this->session->unset_userdata('nama_dosen');
       $this->session->set_userdata('nama_dosen', $data['nama_dosen']);
-      $this->session->set_flashdata('message', 'Berhasil memperbarui informasi akun.');
-      redirect('profil');
+      //$this->session->set_flashdata('updateprofil', 'Berhasil memperbarui informasi akun.');
+      //redirect('profil');
     }
   }
 

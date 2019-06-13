@@ -12,6 +12,7 @@ class Profil extends CI_Controller {
 	}
 
 	public function update(){
+		$updateprofil = array();
 		$nip = $this->input->post('nip');
 		$nama_dosen = $this->input->post('nama_dosen');
 		$password = $this->input->post('password');
@@ -21,10 +22,22 @@ class Profil extends CI_Controller {
 			   	'nama_dosen' => $nama_dosen,
 			   	'password' => md5($password)
 			);
+			$updateprofil = array(
+        		'pesan'	=>	'Berhasil memperbarui informasi akun', 
+        		'icon'	=>	'success',
+        		'title' =>	'Sukses!',
+        		'button'=>	'btn btn-success'
+        	);
 			$this->DosenM->update_profil($data, $nip);
 		} else {
-			$this->session->set_flashdata('message', 'Gagal memperbarui informasi akun.');
-			redirect('profil');
+			$updateprofil = array(
+        		'pesan'	=>	'Gagal memperbarui informasi akun', 
+        		'icon'	=>	'error',
+        		'title' =>	'Error!',
+        		'button'=>	'btn btn-danger'
+        	);
 		}
+		$this->session->set_flashdata('pesan', $updateprofil);
+		redirect('profil');
 	}
 }

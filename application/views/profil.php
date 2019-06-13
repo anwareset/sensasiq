@@ -81,5 +81,6 @@
 		
 	</div>
 	<?php $this->load->view('partials/footer-js.php'); ?>
+
 </body>
 </html>

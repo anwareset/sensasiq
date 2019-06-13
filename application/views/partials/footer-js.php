@@ -39,6 +39,25 @@
 	<!-- Atlantis DEMO methods, don't include it in your project! -->
 	<script src="<?php echo base_url('assets/js/setting-demo.js') ?>"></script>
 	<script src="<?php echo base_url('assets/js/demo.js') ?>"></script>
+
+	<?php
+    	$updateprofil = $this->session->flashdata('pesan');
+        echo "
+        	<script>
+		      $(document).ready(function() {
+				swal('."$updateprofil['title']".', '."$updateprofil['pesan']".', {
+					icon : '."$updateprofil['icon']".',
+					buttons: {        			
+						confirm: {
+							className : '."$updateprofil['button']".'
+						}
+					}, timer: 1100,
+				});
+		      });
+		  	</script>
+    	";
+    ?>
+
 	<script>
 		Circles.create({
 			id:'circles-1',
