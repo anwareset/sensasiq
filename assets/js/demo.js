@@ -15,20 +15,6 @@ Circles.create({
 	styleText:    true
 })
 
-//Notify
-$.notify({
-	icon: 'flaticon-alarm-1',
-	title: 'Welcome!',
-	message: 'Selamat datang di SENSASIQ',
-},{
-	type: 'info',
-	placement: {
-		from: "bottom",
-		align: "right"
-	},
-	time: 1000,
-});
-
 // JQVmap
 $('#map-example').vectorMap(
 {

@@ -539,5 +539,20 @@
 		
 	</div>
 	<?php $this->load->view("partials/footer-js.php") ?>
+	<script type="text/javascript">
+		//Notify
+		$.notify({
+			icon: 'flaticon-alarm-1',
+			title: 'Halo, <?php echo $this->session->nama_dosen ?>!',
+			message: 'Selamat datang di SENSASIQ',
+		},{
+			type: 'info',
+			placement: {
+				from: "bottom",
+				align: "right"
+			},
+			time: 1000,
+		});
+	</script>
 </body>
 </html>

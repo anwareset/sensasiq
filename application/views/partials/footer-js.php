@@ -40,22 +40,26 @@
 	<script src="<?php echo base_url('assets/js/setting-demo.js') ?>"></script>
 	<script src="<?php echo base_url('assets/js/demo.js') ?>"></script>
 
+
+	<!-- NOTIFIKASI SWEETALERT SERBAGUNA -->
 	<?php
+    if (!empty($this->session->flashdata('pesan'))) {
     	$updateprofil = $this->session->flashdata('pesan');
         echo "
         	<script>
 		      $(document).ready(function() {
-				swal('."$updateprofil['title']".', '."$updateprofil['pesan']".', {
-					icon : '."$updateprofil['icon']".',
+				swal('".$updateprofil['pesan3']."', '".$updateprofil['pesan1']."', {
+					icon : '".$updateprofil['pesan2']."',
 					buttons: {        			
 						confirm: {
-							className : '."$updateprofil['button']".'
+							className : '".$updateprofil['pesan4']."'
 						}
 					}, timer: 1100,
 				});
 		      });
 		  	</script>
     	";
+    }
     ?>
 
 	<script>

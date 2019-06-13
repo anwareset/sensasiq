@@ -23,18 +23,18 @@ class Profil extends CI_Controller {
 			   	'password' => md5($password)
 			);
 			$updateprofil = array(
-        		'pesan'	=>	'Berhasil memperbarui informasi akun', 
-        		'icon'	=>	'success',
-        		'title' =>	'Sukses!',
-        		'button'=>	'btn btn-success'
+        		'pesan1'	=>	'Berhasil memperbarui informasi akun', 
+        		'pesan2'	=>	'success',
+        		'pesan3' =>	'Sukses!',
+        		'pesan4'=>	'btn btn-success'
         	);
 			$this->DosenM->update_profil($data, $nip);
 		} else {
 			$updateprofil = array(
-        		'pesan'	=>	'Gagal memperbarui informasi akun', 
-        		'icon'	=>	'error',
-        		'title' =>	'Error!',
-        		'button'=>	'btn btn-danger'
+        		'pesan1'	=>	'Gagal memperbarui informasi akun', 
+        		'pesan2'	=>	'error',
+        		'pesan3' =>	'Error!',
+        		'pesan4'=>	'btn btn-danger'
         	);
 		}
 		$this->session->set_flashdata('pesan', $updateprofil);
