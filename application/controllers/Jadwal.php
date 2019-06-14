@@ -10,7 +10,7 @@ class Jadwal extends CI_Controller {
     
 	public function index()
 	{
-		$this->session->set_flashdata('activemenu','jadwal');
+		$this->session->set_flashdata('activemenu','aktivitas');
 		$data['jadwal'] = $this->JadwalM->tampil_jadwal($this->session->nip);
     	$this->load->view('jadwal', $data);
 	}

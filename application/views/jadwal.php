@@ -19,7 +19,7 @@
 			<div class="content">
 				<div class="page-inner">
 					<div class="page-header">
-						<h4 class="page-title">Jadwal Terkait</h4>
+						<h4 class="page-title">Aktivitas Terkait</h4>
 						<ul class="breadcrumbs">
 							<li class="nav-home">
 								<a href="<?php echo base_url(''); ?> ">
@@ -30,7 +30,7 @@
 								<i class="flaticon-right-arrow"></i>
 							</li>
 							<li class="nav-item">
-								<a href="<?php echo base_url('jadwal'); ?>">Jadwal</a>
+								<a href="<?php echo base_url('jadwal'); ?>">Aktivitas</a>
 							</li>
 						</ul>
 					</div>
@@ -41,7 +41,7 @@
 									<div class="d-flex align-items-center">
 										<button class="btn btn-primary btn-round ml-auto">
 											<i class="far fa-calendar-alt" style="padding-right: 10px;"></i>
-											Lihat Jadwal Mingguan
+											Jadwal Mingguan
 										</button>
 									</div>
 								</div>

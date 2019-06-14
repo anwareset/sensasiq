@@ -6,9 +6,9 @@
 						</div>
 						<div class="info">
 							<a data-toggle="collapse" href="#collapseExample" aria-expanded="true">
-								<span>
+								<span  style="padding-left: 10px;">
 									<?php echo $this->session->nama_dosen; ?>
-									<span class="user-level">Dosen</span>
+									<span class="user-level text-success">Online</span>
 									<span class="caret"></span>
 								</span>
 							</a>
@@ -34,10 +34,26 @@
 						</li>
 					</ul>
 					<ul class="nav nav-primary">
-						<li class="nav-item <?php if($this->session->flashdata('activemenu') == 'jadwal'): echo "active"; endif; ?>">
+						<li class="nav-item <?php if($this->session->flashdata('activemenu') == 'generate'): echo "active"; endif; ?>">
+							<a href="<?php echo base_url(''); ?>">
+								<i class="fas fa-qrcode"></i>
+								<p>QR Generator</p>
+							</a>
+						</li>
+					</ul>
+					<ul class="nav nav-primary">
+						<li class="nav-item <?php if($this->session->flashdata('activemenu') == 'absensi'): echo "active"; endif; ?>">
+							<a href="<?php echo base_url(''); ?>">
+								<i class="fas fa-address-book"></i>
+								<p>Rekapitulasi</p>
+							</a>
+						</li>
+					</ul>
+					<ul class="nav nav-primary">
+						<li class="nav-item <?php if($this->session->flashdata('activemenu') == 'aktivitas'): echo "active"; endif; ?>">
 							<a href="<?php echo base_url('jadwal'); ?>">
 								<i class="fas fa-clipboard-list"></i>
-								<p>Jadwal</p>
+								<p>Aktivitas</p>
 								<span class="badge badge-success">
 									<?php
 									$this->db->select('*');
@@ -50,6 +66,14 @@
 								    echo $result->num_rows();
 									?>
 								</span>
+							</a>
+						</li>
+					</ul>
+					<ul class="nav nav-primary">
+						<li class="nav-item <?php if($this->session->flashdata('activemenu') == 'Riwayat'): echo "active"; endif; ?>">
+							<a href="<?php echo base_url(''); ?>">
+								<i class="fas fa-history"></i>
+								<p>Riwayat</p>
 							</a>
 						</li>
 					</ul>
