@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.5
+-- version 4.9.0.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Jun 12, 2019 at 06:30 AM
+-- Generation Time: Jun 14, 2019 at 11:15 AM
 -- Server version: 10.3.15-MariaDB
--- PHP Version: 7.3.5
+-- PHP Version: 7.3.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -36,13 +36,6 @@ CREATE TABLE `tbabsen` (
   `waktu` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
---
--- Dumping data for table `tbabsen`
---
-
-INSERT INTO `tbabsen` (`id_absen`, `id_jadwal`, `id_qr`, `nim`, `waktu`) VALUES
-(1, 1, 1, 1610302, '2019-06-09 05:28:51');
-
 -- --------------------------------------------------------
 
 --
@@ -60,7 +53,7 @@ CREATE TABLE `tbdosen` (
 --
 
 INSERT INTO `tbdosen` (`nip`, `nama_dosen`, `password`) VALUES
-(1121, 'Lord Ardi', '83c3971b88e964a5ca3b0a0e5ba3778c');
+(6969, 'Ardick Sanjaya Ea', '89a4b5bd7d02ad1e342c960e6a98365c');
 
 -- --------------------------------------------------------
 
@@ -73,7 +66,7 @@ CREATE TABLE `tbjadwal` (
   `id_matkul` int(20) NOT NULL,
   `id_kelas` int(20) NOT NULL,
   `nip` int(20) NOT NULL,
-  `waktu` time NOT NULL
+  `waktu` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -81,8 +74,8 @@ CREATE TABLE `tbjadwal` (
 --
 
 INSERT INTO `tbjadwal` (`id_jadwal`, `id_matkul`, `id_kelas`, `nip`, `waktu`) VALUES
-(1, 1, 1, 1121, '10:00:00'),
-(3, 1, 1, 1121, '08:00:00');
+(5, 1, 1, 6969, '2019-06-19 08:00:00'),
+(7, 2, 2, 6969, '2019-06-29 09:30:00');
 
 -- --------------------------------------------------------
 
@@ -157,13 +150,6 @@ CREATE TABLE `tbqr` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `tbqr`
---
-
-INSERT INTO `tbqr` (`id_qr`, `nip`, `qr`) VALUES
-(1, 1121, '1111111111111111');
-
---
 -- Indexes for dumped tables
 --
 
@@ -231,7 +217,7 @@ ALTER TABLE `tbabsen`
 -- AUTO_INCREMENT for table `tbjadwal`
 --
 ALTER TABLE `tbjadwal`
-  MODIFY `id_jadwal` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_jadwal` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `tbkelas`
