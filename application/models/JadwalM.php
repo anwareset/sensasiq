@@ -2,6 +2,8 @@
 // extends class Model
 class JadwalM extends CI_Model{
 
+///////////////////////// CRUD API  /////////////////////////
+
   // response jika field ada yang kosong
   public function empty_response(){
     $response['status']=502;
@@ -127,6 +129,36 @@ class JadwalM extends CI_Model{
       }
     }
   }
+
+///////////////////////// CRUD WEB  /////////////////////////
+
+
+  // menampilkan jadwal berdasarkan nip
+  public function tampil_jadwal($nip){
+    $this->db->select('tbjadwal.id_jadwal as id_jadwal, tbjadwal.waktu as waktu, tbkelas.nama_kelas as nama_kelas, tbmatkul.nama_matkul as nama_matkul');
+    $this->db->order_by('waktu', 'ASC');
+    $this->db->from('tbjadwal');
+    $this->db->join('tbkelas', 'tbkelas.id_kelas = tbjadwal.id_kelas');
+    $this->db->join('tbdosen', 'tbdosen.nip = tbjadwal.nip');
+    $this->db->join('tbmatkul', 'tbmatkul.id_matkul = tbjadwal.id_matkul');
+    $this->db->where('tbjadwal.nip', $nip);
+    $result = $this->db->get();
+    return $result->result_array();
+  }
+
+  //menampilkan jadwal berdasarkan id_jadwal untuk update
+  public function tampil_jadwal_update($id_jadwal){
+    $result =  $this->db->get_where('tbjadwal', array('id_jadwal'=>$id_jadwal));
+    return $result->result_array();
+  }
+
+  // update profil
+  public function update_jadwal_web($data, $id_jadwal){
+    $this->db->where('id_jadwal', $id_jadwal);
+    $this->db->update("tbjadwal", $data);
+  }
+
+
 }
 
 ?>

@@ -4,22 +4,22 @@
 						<ul class="nav">
 							<li class="nav-item">
 								<a class="nav-link" href="https://www.themekita.com">
-									ThemeKita
+									Bantuan
 								</a>
 							</li>
 							<li class="nav-item">
 								<a class="nav-link" href="#">
-									Help
+									Kebijakan Privasi
 								</a>
 							</li>
 							<li class="nav-item">
 								<a class="nav-link" href="#">
-									Licenses
+									Ketentuan Layanan
 								</a>
 							</li>
 						</ul>
 					</nav>
 					<div class="copyright ml-auto">
-						2018, made with <i class="fa fa-heart heart text-danger"></i> by <a href="https://www.themekita.com">ThemeKita</a>
+						2019, made with <i class="fa fa-heart heart text-danger"></i> by <a href="http://unpkediri.ac.id">UNPKediri</a>
 					</div>				
 				</div>

@@ -11,6 +11,7 @@ class Dashboard extends CI_Controller {
 	{
 		//$data['hitung'] = $this->model->count();
 		//$data['posts'] = $this->model->index();
+		$this->session->set_flashdata('activemenu','dashboard');
  	   	$this->load->view('dashboard');
 	}
 	

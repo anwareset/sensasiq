@@ -26,10 +26,18 @@
 						</div>
 					</div>
 					<ul class="nav nav-primary">
-						<li class="nav-item">
+						<li class="nav-item <?php if($this->session->flashdata('activemenu') == 'dashboard'): echo "active"; endif; ?>">
 							<a href="<?php echo base_url(''); ?>">
 								<i class="fas fa-home"></i>
 								<p>Dashboard</p>
+							</a>
+						</li>
+					</ul>
+					<ul class="nav nav-primary">
+						<li class="nav-item <?php if($this->session->flashdata('activemenu') == 'jadwal'): echo "active"; endif; ?>">
+							<a href="<?php echo base_url('jadwal'); ?>">
+								<i class="fas fa-clipboard-list"></i>
+								<p>Jadwal</p>
 								<span class="badge badge-success">4</span>
 							</a>
 						</li>
