@@ -27,15 +27,11 @@ class Jadwal extends CI_Controller {
 
 	public function update_jadwal(){
 		$updatejadwal = array();
-		$nip = $this->input->post('nip');
-		$id_jadwal = $this->input->post('id_jadwal');
-		$id_kelas = $this->input->post('id_kelas');
-		$id_matkul = $this->input->post('id_matkul');
 		$waktu = $this->input->post('waktu');
-		if ((!empty($nip) && !empty($waktu) && !empty($id_matkul) && !empty($id_jadwal)) && !empty($id_kelas) ) {
+		$id_jadwal = $this->input->post('id_jadwal');
+		if (!empty($waktu) && !empty($id_jadwal)) {
 			$data = array(
-			   	'waktu'		=> $waktu,
-			   	'id_kelas'	=> $id_kelas
+			   	'waktu'		=> $waktu
 			);
 			$updatejadwal = array(
         		'pesan1' =>	'Berhasil memperbarui jadwal', 
@@ -45,7 +41,7 @@ class Jadwal extends CI_Controller {
         	);
 			$this->JadwalM->update_jadwal_web($data, $id_jadwal);
 		} else {
-			$updateprofil = array(
+			$updatejadwal = array(
         		'pesan1' =>	'Gagal memperbarui jadwal', 
         		'pesan2' =>	'error',
         		'pesan3' =>	'Error!',

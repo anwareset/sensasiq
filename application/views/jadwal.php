@@ -39,60 +39,13 @@
 							<div class="card">
 								<div class="card-header">
 									<div class="d-flex align-items-center">
-										<h4 class="card-title">Add Row</h4>
-										<button class="btn btn-primary btn-round ml-auto" data-toggle="modal" data-target="#addRowModal">
+										<button class="btn btn-primary btn-round ml-auto">
 											<i class="far fa-calendar-alt" style="padding-right: 10px;"></i>
 											Lihat Jadwal Mingguan
 										</button>
 									</div>
 								</div>
 								<div class="card-body">
-									<!-- Modal -->
-									<div class="modal fade" id="addRowModal" tabindex="-1" role="dialog" aria-hidden="true">
-										<div class="modal-dialog" role="document">
-											<div class="modal-content">
-												<div class="modal-header no-bd">
-													<h5 class="modal-title">
-														<span class="fw-mediumbold">
-														Perbarui Jadwal</span>
-													</h5>
-													<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-														<span aria-hidden="true">&times;</span>
-													</button>
-												</div>
-												<div class="modal-body">
-													<p class="small">Anda dapat memperbarui <b>Waktu</b> mengajar sesuai dengan kebutuhan.</p>
-													<form>
-														<div class="row">
-															<div class="col-md-6 pr-0">
-																<div class="form-group">
-																	<label>Mata Kuliah</label>
-																	<input id="addPosition" type="text" class="form-control" placeholder="Mata kuliah" readonly="readonly">
-																</div>
-															</div>
-															<div class="col-md-6">
-																<div class="form-group">
-																	<label>Kelas</label>
-																	<input id="addPosition" type="text" class="form-control" placeholder="Nama kelas" readonly="readonly">
-																</div>
-															</div>
-															<div class="col-sm-12">
-																<div class="form-group">
-																	<label>Waktu</label>
-																	<input id="addName" type="text" class="form-control" placeholder="Silahkan isi waktu mengajar">
-																</div>
-															</div>
-														</div>
-													</form>
-												</div>
-												<div class="modal-footer no-bd">
-													<button type="button" id="addRowButton" class="btn btn-primary">Ubah</button>
-													<button type="button" class="btn btn-primary btn-border" data-dismiss="modal">Batal</button>
-												</div>
-											</div>
-										</div>
-									</div>
-
 									<div class="table-responsive">
 										<table id="add-row" class="display table table-striped table-hover" >
 											<thead>
@@ -119,9 +72,8 @@
 								                    <td><?php echo $datajadwal['nama_kelas']; ?></td>
 													<td>
 														<div class="form-button-action">
-															<button type="button"  data-toggle="modal" data-target="#addRowModal" title="" class="btn btn-link btn-primary btn-lg" data-original-title="Edit Jadwal">
-																<i class="fa fa-edit"></i>
-															</button>
+															
+															<a href="<?php echo base_url('jadwal/updatejadwal/').$datajadwal['id_jadwal']; ?>"><div title="Perbarui Jadwal" class="btn btn-link btn-primary btn-lg"><i class="fas fa-edit"></i></div></a>
 														</div>
 													</td>
 												</tr>
@@ -177,17 +129,6 @@
 			});
 
 			var action = '<td> <div class="form-button-action"> <button type="button" data-toggle="tooltip" title="" class="btn btn-link btn-primary btn-lg" data-original-title="Edit Task"> <i class="fa fa-edit"></i> </button> <button type="button" data-toggle="tooltip" title="" class="btn btn-link btn-danger" data-original-title="Remove"> <i class="fa fa-times"></i> </button> </div> </td>';
-
-			$('#addRowButton').click(function() {
-				$('#add-row').dataTable().fnAddData([
-					$("#addName").val(),
-					$("#addPosition").val(),
-					$("#addOffice").val(),
-					action
-					]);
-				$('#addRowModal').modal('hide');
-
-			});
 		});
 	</script>
 </body>

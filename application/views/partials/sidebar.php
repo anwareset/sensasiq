@@ -38,7 +38,18 @@
 							<a href="<?php echo base_url('jadwal'); ?>">
 								<i class="fas fa-clipboard-list"></i>
 								<p>Jadwal</p>
-								<span class="badge badge-success">4</span>
+								<span class="badge badge-success">
+									<?php
+									$this->db->select('*');
+								    $this->db->from('tbjadwal');
+								    $this->db->join('tbkelas', 'tbkelas.id_kelas = tbjadwal.id_kelas');
+								    $this->db->join('tbdosen', 'tbdosen.nip = tbjadwal.nip');
+								    $this->db->join('tbmatkul', 'tbmatkul.id_matkul = tbjadwal.id_matkul');
+								    $this->db->where('tbjadwal.nip', $this->session->nip);
+								    $result = $this->db->get();
+								    echo $result->num_rows();
+									?>
+								</span>
 							</a>
 						</li>
 					</ul>
