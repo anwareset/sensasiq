@@ -5,7 +5,16 @@
     	}
 	?>
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-	<title><?php echo SITE_NAME ." ". ucfirst($this->uri->segment(1)) ."". ucfirst($this->uri->segment(2)) ?></title>
+	<title>
+		<?php
+			if ($this->uri->segment(1)) {
+				$sparator = " | ";
+			} else {
+				$sparator = null;
+			}
+			echo SITE_NAME ."$sparator". ucfirst($this->uri->segment(1));
+		?>	
+	</title>
 	<meta content='width=device-width, initial-scale=1.0, shrink-to-fit=no' name='viewport' />
 	<link rel="icon" href="<?php echo base_url('assets/img/icon.ico'); ?>" type="image/x-icon"/>
 
