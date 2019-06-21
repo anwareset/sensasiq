@@ -134,16 +134,14 @@
 							</div>
 						</li>
 						<li class="nav-item dropdown hidden-caret">
-							<a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="#" aria-expanded="false">
-								<div class="avatar-sm">
-									<img src="<?php echo base_url('assets/img/profile.jpg') ?>" alt="..." class="avatar-img rounded-circle">
-								</div>
+							<a class="dropdown-toggle profile-pic nav-link" data-toggle="dropdown" href="#" aria-expanded="false">
+								<i class="fas fa-user"></i>
 							</a>
 							<ul class="dropdown-menu dropdown-user animated fadeIn">
 								<div class="dropdown-user-scroll scrollbar-outer">
 									<li>
 										<div class="user-box">
-											<div class="avatar-lg"><img src="<?php echo base_url('assets/img/profile.jpg') ?>" alt="image profile" class="avatar-img rounded"></div>
+											<div class="avatar-lg"><img src="<?php echo base_url('assets/img/profil-unp.PNG') ?>" alt="image profile" class="avatar-img rounded"></div>
 											<div class="u-text">
 												<h4><?php echo $this->session->nama_dosen; ?></h4>
 												<a href="<?php echo base_url('profil'); ?>" class="btn btn-xs btn-secondary btn-sm">Edit Profil</a>
