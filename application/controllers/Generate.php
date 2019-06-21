@@ -21,23 +21,14 @@ class Generate extends CI_Controller {
 	public function generated(){
 		$sweetAlertQr = array();  // Untuk sweetalert dinamis
 		$id_jadwal = $this->input->post('id_jadwal');
-		$kelas = $this->input->post('kelas');
-		$waktu = $this->input->post('waktu');
-		$matkul = $this->input->post('matkul');
 		if (!empty($id_jadwal)) {
-			$data = array(
-			   	'waktu'		=> $waktu,
-			   	'matkul'	=> $matkul,
-			   	'kelas'		=> $kelas,
-			   	'nip'		=> $this->session->nip
-			);
 			$sweetAlertQr = array(
         		'pesan1' =>	'Berhasil memperbarui jadwal', 
         		'pesan2' =>	'success',
         		'pesan3' =>	'Sukses!',
         		'pesan4' =>	'btn btn-success'
         	);
-			$this->QrM->generateQr($data, $id_jadwal);
+			$this->QrM->generateQr($id_jadwal);
 		} else {
 			$sweetAlertQr = array(
         		'pesan1' =>	'Gagal memperbarui jadwal', 
