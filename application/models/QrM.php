@@ -1,6 +1,6 @@
 <?php
 // extends class Model
-class QrM extends CI_Model{
+class QrM extends CI_Model {
 
 ///////////////////////// CRUD API  /////////////////////////
 
@@ -128,14 +128,20 @@ class QrM extends CI_Model{
 
 ///////////////////////// CRUD WEB  /////////////////////////
 
-  public function generateQr($datajadwal){
-    foreach ($datajadwal as $dataJadwal) :
-      $data = array(
-        "nip" => $dataJadwal[0]['nip'],
-        "qr"  => $dataJadwal[0]['nama_matkul']."-".$dataJadwal[0]['nama_kelas']."-".$dataJadwal[0]['nip']."-".$dataJadwal[0]['waktu']
-        );
-    endforeach;
-    $insert = $this->db->insert("tbqr", $data);
+  public function generateQr($datainsert){
+    $insert = $this->db->insert("tbqr", $datainsert);
+  }
+
+  public function updateQr($data){
+    $this->db->where($data);
+    $dataQr = $this->db->get("tbqr")->result_array();
+    $set['qr'] = md5($this->encryption->encrypt($this->encryption->decrypt(md5($dataQr[0]['qr']))));
+    $whereupdate['id_qr'] = $dataQr[0]['id_qr'];
+    $this->db->where($whereupdate);
+    $update = $this->db->update("tbqr", $set);
+    $this->db->where($whereupdate);
+    $dataQr = $this->db->get("tbqr")->result_array();
+    return $dataQr;
   }
 
 }
