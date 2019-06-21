@@ -44,13 +44,13 @@
 											<div class="form-group">
 												<label for="exampleFormControlSelect1">Jadwal</label>
 												<select class="form-control" name="id_jadwal" id="exampleFormControlSelect1">
-													<option value="1" >Jadwal X</option>
-													<option value="2" >Jadwal Y</option>
-													<option value="3" >Jadwal Z</option>
+													<?php foreach ($jadwal as $datajadwal) : ?>
+													<option value="<?php $datajadwal['id_jadwal']; ?>" ><?php echo $datajadwal['nama_matkul'].' - '.$datajadwal['nama_kelas']; ?></option>
+													<?php endforeach; ?>
 												</select>
 											</div>
 											<div class="form-group float-right">
-												<button type="submit" value="Kirim" name="btnUbah" class="btn btn-primary">Generate</button>
+												<button type="submit" value="Kirim" name="btnGenerate" class="btn btn-primary">Generate</button>
 												<span style="padding: 5px"></span>
 												<input type="button" class="btn btn-primary btn-border" onclick="location.href='<?php echo base_url('') ?>';" value="Batalkan">
 											</div>
