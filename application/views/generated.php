@@ -36,19 +36,18 @@
 								<i class="flaticon-right-arrow"></i>
 							</li>
 							<li class="nav-item">
-								<a href="<?php echo base_url('generated'); ?>">QR Absensi</a>
+								<a href="<?php echo base_url('generated'); ?>">QR Code</a>
 							</li>
 						</ul>
 					</div>
 					<div class="row">
-						<div class="col-md-12">
+						<div class="col-md-5 ml-auto mr-auto">
 							<div class="card">
-								<div class="card-header">
-									<p class="card-category">
-									Silahkan pindah QR Code berikut dengan <b>SENSASIQ APP</b>
+								<div class="card-body text-center">
+									<img src="<?php echo base_url('assets/img/qr-demo.png') ?>" alt="qr-demo" style="max-height: 100%; max-width: 100%" />
 								</div>
-								<div class="card-body">
-									ini qr
+								<div class="card-footer text-center">
+									<p class="card-category">Silahkan pindah QR Code berikut dengan <b>SENSASIQ APP</b><br />QR Code akan diperbarui setiap <b>45 detik</b> sekali</p>
 								</div>
 							</div>
 						</div>
@@ -62,42 +61,5 @@
 		
 	</div>
 	<?php $this->load->view("partials/footer-js.php") ?>
-	<script >
-		$(document).ready(function() {
-			$('#basic-datatables').DataTable({
-			});
-
-			$('#multi-filter-select').DataTable( {
-				"pageLength": 5,
-				initComplete: function () {
-					this.api().columns().every( function () {
-						var column = this;
-						var select = $('<select class="form-control"><option value=""></option></select>')
-						.appendTo( $(column.footer()).empty() )
-						.on( 'change', function () {
-							var val = $.fn.dataTable.util.escapeRegex(
-								$(this).val()
-								);
-
-							column
-							.search( val ? '^'+val+'$' : '', true, false )
-							.draw();
-						} );
-
-						column.data().unique().sort().each( function ( d, j ) {
-							select.append( '<option value="'+d+'">'+d+'</option>' )
-						} );
-					} );
-				}
-			});
-
-			// Add Row
-			$('#add-row').DataTable({
-				"pageLength": 5,
-			});
-
-			var action = '<td> <div class="form-button-action"> <button type="button" data-toggle="tooltip" title="" class="btn btn-link btn-primary btn-lg" data-original-title="Edit Task"> <i class="fa fa-edit"></i> </button> <button type="button" data-toggle="tooltip" title="" class="btn btn-link btn-danger" data-original-title="Remove"> <i class="fa fa-times"></i> </button> </div> </td>';
-		});
-	</script>
 </body>
 </html>
