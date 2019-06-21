@@ -2,6 +2,8 @@
 // extends class Model
 class QrM extends CI_Model{
 
+///////////////////////// CRUD API  /////////////////////////
+
   // response jika field ada yang kosong
   public function empty_response(){
     $response['status']=502;
@@ -123,6 +125,19 @@ class QrM extends CI_Model{
       }
     }
   }
+
+///////////////////////// CRUD WEB  /////////////////////////
+
+  public function generateQr($datajadwal){
+    foreach ($datajadwal as $dataJadwal) :
+      $data = array(
+        "nip" => $dataJadwal[0]['nip'],
+        "qr"  => $dataJadwal[0]['nama_matkul']."-".$dataJadwal[0]['nama_kelas']."-".$dataJadwal[0]['nip']."-".$dataJadwal[0]['waktu']
+        );
+    endforeach;
+    $insert = $this->db->insert("tbqr", $data);
+  }
+
 }
 
 ?>

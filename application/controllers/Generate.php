@@ -23,22 +23,23 @@ class Generate extends CI_Controller {
 		$id_jadwal = $this->input->post('id_jadwal');
 		if (!empty($id_jadwal)) {
 			$sweetAlertQr = array(
-        		'pesan1' =>	'Berhasil memperbarui jadwal', 
+        		'pesan1' =>	'Berhasil generate QR Code', 
         		'pesan2' =>	'success',
         		'pesan3' =>	'Sukses!',
         		'pesan4' =>	'btn btn-success'
         	);
-			$this->QrM->generateQr($id_jadwal);
+        	$data['datajadwal'] = $this->JadwalM->tampil_jadwal_update($id_jadwal);
+			$this->QrM->generateQr($data);
 		} else {
 			$sweetAlertQr = array(
-        		'pesan1' =>	'Gagal memperbarui jadwal', 
+        		'pesan1' =>	'Gagal generate QR Code', 
         		'pesan2' =>	'error',
         		'pesan3' =>	'Error!',
         		'pesan4' =>	'btn btn-danger'
         	);
 		}
 		$this->session->set_flashdata('pesan', $sweetAlertQr); // Untuk sweetalert dinamis
-		redirect('aktivitas');
+		$this->load->view('generated');
 	}
 	
 }
