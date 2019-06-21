@@ -30,7 +30,7 @@
 								<i class="flaticon-right-arrow"></i>
 							</li>
 							<li class="nav-item">
-								<a href="<?php echo base_url('jadwal'); ?>">Aktivitas</a>
+								<a href="<?php echo base_url('aktivitas'); ?>">Aktivitas</a>
 							</li>
 						</ul>
 					</div>
@@ -73,7 +73,7 @@
 													<td>
 														<div class="form-button-action">
 															
-															<a href="<?php echo base_url('jadwal/updatejadwal/').$datajadwal['id_jadwal']; ?>"><div title="Perbarui Jadwal" class="btn btn-link btn-primary btn-lg"><i class="fas fa-edit"></i></div></a>
+															<a href="<?php echo base_url('aktivitas/updatejadwal/').$datajadwal['id_jadwal']; ?>"><div title="Perbarui Jadwal" class="btn btn-link btn-primary btn-lg"><i class="fas fa-edit"></i></div></a>
 														</div>
 													</td>
 												</tr>

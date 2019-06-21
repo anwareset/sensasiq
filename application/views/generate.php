@@ -21,7 +21,7 @@
 					<div class="page-inner py-5">
 						<div class="d-flex align-items-left align-items-md-center flex-column flex-md-row">
 							<div>
-								<h2 class="text-white pb-2 fw-bold">Perbarui Jadwal</h2>
+								<h2 class="text-white pb-2 fw-bold">QR Generator</h2>
 							</div>
 						</div>
 					</div>
@@ -32,34 +32,27 @@
 							<div class="card">
 								<div class="card-header">
 									<div class="card-head-row card-tools-still-right">
-										<h4 class="card-title">Informasi Jadwal</h4>
+										<h4 class="card-title">Informasi QR</h4>
 									</div>
 									<p class="card-category">
-									Anda dapat memperbarui <b>Waktu</b> dari jadwal Anda.</p>
+									Silahkan pilih informasi untuk QR Code
 								</div>
-								<div class="card-body">
-									<form method="POST" action="<?php echo base_url('aktivitas/update_jadwal') ?>">
+								<div class="card-body">	
+									<form method="POST" action="<?php echo base_url('generate/generated') ?>">
 									<div class="row">
 										<div class="col">
 											<div class="form-group">
-												<label>Mata Kuliah</label>
-													<input type="text" class="form-control" name="nip" value="<?php echo $jadwalupdate[0]['nama_matkul']; ?>" readonly="readonly" />
-											</div>
-											<div class="form-group">
-												<label>Kelas</label>
-												<input type="text" class="form-control" name="nama_kelas" value="<?php echo $jadwalupdate[0]['nama_kelas']; ?>" readonly="readonly">
-											</div>
-											<div class="form-group">
-												<label>Waktu</label>
-												<input type="text" class="form-control" name="waktu" value="<?php echo $jadwalupdate[0]['waktu']; ?>">
-											</div>
-											<div hidden="true" class="form-group">
-												<input type="text" class="form-control" name="id_jadwal" value="<?php echo $jadwalupdate[0]['id_jadwal']; ?>" readonly="readonly">
+												<label for="exampleFormControlSelect1">Jadwal</label>
+												<select class="form-control" name="id_jadwal" id="exampleFormControlSelect1">
+													<option value="1" >Jadwal X</option>
+													<option value="2" >Jadwal Y</option>
+													<option value="3" >Jadwal Z</option>
+												</select>
 											</div>
 											<div class="form-group float-right">
-												<button type="submit" value="Kirim" name="btnUbah" class="btn btn-primary">Ubah</button>
+												<button type="submit" value="Kirim" name="btnUbah" class="btn btn-primary">Generate</button>
 												<span style="padding: 5px"></span>
-												<input type="button" class="btn btn-primary btn-border" onclick="location.href='<?php echo base_url('aktivitas') ?>';" value="Batal">
+												<input type="button" class="btn btn-primary btn-border" onclick="location.href='<?php echo base_url('') ?>';" value="Batalkan">
 											</div>
 										</div>
 									</div>

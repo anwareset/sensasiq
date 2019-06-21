@@ -35,15 +35,15 @@
 					</ul>
 					<ul class="nav nav-primary">
 						<li class="nav-item <?php if($this->session->flashdata('activemenu') == 'generate'): echo "active"; endif; ?>">
-							<a href="<?php echo base_url(''); ?>">
+							<a href="<?php echo base_url('generate'); ?>">
 								<i class="fas fa-qrcode"></i>
 								<p>QR Generator</p>
 							</a>
 						</li>
 					</ul>
 					<ul class="nav nav-primary">
-						<li class="nav-item <?php if($this->session->flashdata('activemenu') == 'absensi'): echo "active"; endif; ?>">
-							<a href="<?php echo base_url(''); ?>">
+						<li class="nav-item <?php if($this->session->flashdata('activemenu') == 'rekapitulasi'): echo "active"; endif; ?>">
+							<a href="<?php echo base_url('rekapitulasi'); ?>">
 								<i class="fas fa-address-book"></i>
 								<p>Rekapitulasi</p>
 							</a>
@@ -51,7 +51,7 @@
 					</ul>
 					<ul class="nav nav-primary">
 						<li class="nav-item <?php if($this->session->flashdata('activemenu') == 'aktivitas'): echo "active"; endif; ?>">
-							<a href="<?php echo base_url('jadwal'); ?>">
+							<a href="<?php echo base_url('aktivitas'); ?>">
 								<i class="fas fa-clipboard-list"></i>
 								<p>Aktivitas</p>
 								<span class="badge badge-success">

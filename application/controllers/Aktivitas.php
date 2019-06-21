@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Jadwal extends CI_Controller {
+class Aktivitas extends CI_Controller {
     public function __construct()
     {
 		parent::__construct();
@@ -12,13 +12,13 @@ class Jadwal extends CI_Controller {
 	{
 		$this->session->set_flashdata('activemenu','aktivitas');
 		$data['jadwal'] = $this->JadwalM->tampil_jadwal($this->session->nip);
-    	$this->load->view('jadwal', $data);
+    	$this->load->view('aktivitas', $data);
 	}
 
 	public function updatejadwal($id_jadwal = null)
 	{	
 		if (empty($id_jadwal)) {
-			redirect('jadwal');
+			redirect('aktivitas');
 		} else {
 			$data['jadwalupdate'] = $this->JadwalM->tampil_jadwal_update($id_jadwal);
         	$this->load->view('updatejadwal', $data);
@@ -49,7 +49,7 @@ class Jadwal extends CI_Controller {
         	);
 		}
 		$this->session->set_flashdata('pesan', $updatejadwal);
-		redirect('jadwal');
+		redirect('aktivitas');
 	}
 
 	public function cetakjadwal()
