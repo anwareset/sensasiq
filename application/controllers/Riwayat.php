@@ -5,14 +5,14 @@ class Riwayat extends CI_Controller {
     public function __construct()
     {
 		parent::__construct();
-		//$this->load->model('anuM');
+		$this->load->model('AbsenM');
 	}
     
 	public function index()
 	{
-		//$data['riwayat'] = $this->anuM->tampil_jadwal_yang_sudah_diabsen($this->session->nip);
+		$data['riwayat'] = $this->AbsenM->tampil_riwayat($this->session->nip);
 		$this->session->set_flashdata('activemenu','riwayat');
- 	   	$this->load->view('riwayat');
+ 	   	$this->load->view('riwayat',$data);
 	}
 	
 }

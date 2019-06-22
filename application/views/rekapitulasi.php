@@ -36,15 +36,7 @@
 					</div>
 					<div class="row">
 						<div class="col-md-12">
-							<div class="card">
-								<div class="card-header">
-									<div class="d-flex align-items-center">
-										<button class="btn btn-primary btn-round ml-auto">
-											<i class="far fa-calendar-alt" style="padding-right: 10px;"></i>
-											Jadwal Mingguan
-										</button>
-									</div>
-								</div>
+							<div class="card">								
 								<div class="card-body">
 									<div class="table-responsive">
 										<table id="add-row" class="display table table-striped table-hover" >
