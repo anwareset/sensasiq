@@ -70,8 +70,8 @@
 						</li>
 					</ul>
 					<ul class="nav nav-primary">
-						<li class="nav-item <?php if($this->session->flashdata('activemenu') == 'Riwayat'): echo "active"; endif; ?>">
-							<a href="<?php echo base_url(''); ?>">
+						<li class="nav-item <?php if($this->session->flashdata('activemenu') == 'riwayat'): echo "active"; endif; ?>">
+							<a href="<?php echo base_url('riwayat'); ?>">
 								<i class="fas fa-history"></i>
 								<p>Riwayat</p>
 							</a>
