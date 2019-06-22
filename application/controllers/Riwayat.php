@@ -12,7 +12,7 @@ class Riwayat extends CI_Controller {
 	{
 		//$data['riwayat'] = $this->anuM->tampil_jadwal_yang_sudah_diabsen($this->session->nip);
 		$this->session->set_flashdata('activemenu','riwayat');
- 	   	$this->load->view('riwayat', $data);
+ 	   	$this->load->view('riwayat');
 	}
 	
 }

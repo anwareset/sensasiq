@@ -19,7 +19,7 @@
 			<div class="content">
 				<div class="page-inner">
 					<div class="page-header">
-						<h4 class="page-title">Aktivitas Terkait</h4>
+						<h4 class="page-title">Riwayat</h4>
 						<ul class="breadcrumbs">
 							<li class="nav-home">
 								<a href="<?php echo base_url(''); ?> ">
@@ -30,21 +30,13 @@
 								<i class="flaticon-right-arrow"></i>
 							</li>
 							<li class="nav-item">
-								<a href="<?php echo base_url('aktivitas'); ?>">Aktivitas</a>
+								<a href="<?php echo base_url('riwayat'); ?>">Riwayat</a>
 							</li>
 						</ul>
 					</div>
 					<div class="row">
 						<div class="col-md-12">
 							<div class="card">
-								<div class="card-header">
-									<div class="d-flex align-items-center">
-										<button class="btn btn-primary btn-round ml-auto">
-											<i class="far fa-calendar-alt" style="padding-right: 10px;"></i>
-											Jadwal Mingguan
-										</button>
-									</div>
-								</div>
 								<div class="card-body">
 									<div class="table-responsive">
 										<table id="add-row" class="display table table-striped table-hover" >
