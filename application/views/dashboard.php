@@ -129,30 +129,13 @@
 								</div>
 								<div class="card-body">
 									<ol class="activity-feed">
-										<li class="feed-item feed-item-secondary">
-											<time class="date" datetime="9-25">Sep 25</time>
-											<span class="text">Pemrograman Visual</span>
-										</li>
-										<li class="feed-item feed-item-success">
-											<time class="date" datetime="9-24">Sep 24</time>
-											<span class="text">Pemrograman Database</span>
-										</li>
+									<?php 
+									foreach ($riwayat as $r): ?>
 										<li class="feed-item feed-item-info">
-											<time class="date" datetime="9-23">Sep 23</time>
-											<span class="text">Pemrograman Web</span>
-										</li>
-										<li class="feed-item feed-item-warning">
-											<time class="date" datetime="9-21">Sep 21</time>
-											<span class="text">Algoritma Pemrograman</span>
-										</li>
-										<li class="feed-item feed-item-danger">
-											<time class="date" datetime="9-21">Sep 28</time>
-											<span class="text">Inovasi Teknologi</span>
-										</li>
-										<li class="feed-item feed-item-secondary">
-											<time class="date" datetime="9-25">Sep 29</time>
-											<span class="text">Pemrograman Visual</span>
-										</li>
+											<time class="date" datetime="9-25"><?php  echo $r['waktu'] ?></time>
+											<span class="text"><?php  echo $r['matkul'] ?></span>
+										</li>	
+								     <?php endforeach; ?>									
 									</ol>
 								</div>
 							</div>
