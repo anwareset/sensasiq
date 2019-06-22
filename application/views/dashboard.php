@@ -132,7 +132,7 @@
 									<?php 
 									foreach ($riwayat as $r): ?>
 										<li class="feed-item feed-item-info">
-											<time class="date" datetime="9-25"><?php  echo $r['waktu'] ?></time>
+											<time class="date" datetime="<?php  echo $r['waktu'] ?>"><?php echo date('d M Y', strtotime($r['waktu'])) ?></time>
 											<span class="text"><?php  echo $r['matkul'] ?></span>
 										</li>	
 								     <?php endforeach; ?>									
