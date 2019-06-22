@@ -165,7 +165,13 @@ class JadwalM extends CI_Model{
     $this->db->update('tbjadwal', $data);
   }
 
-
+  public function count($nip){    
+    $this->db->select('count(nip) as kelas, count(id_matkul) as matkul');
+    $this->db->from('tbjadwal');
+    $this->db->where('nip',$nip);
+    $result = $this->db->get();
+    return $result->result_array();
+  }
 }
 
 ?>

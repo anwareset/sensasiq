@@ -60,10 +60,15 @@
 																<i class="flaticon-network"></i>
 															</div>
 														</div>
+														<?php 
+														 // $nip=$this->session->userdata('nip');
+           				// 								 $res = $this->db->query("SELECT count(nip) as kelas,count(id_matkul) as matkul from tbjadwal where nip='$nip' ");
+           				// 								 $kelas = $res->result_array();
+       													 foreach ($kelas as $k) :?>
 														<div class="col-7 col-stats">
 															<div class="numbers">
 																<p class="card-category">Kelas</p>
-																<h4 class="card-title">69</h4>
+																<h4 class="card-title"><?php  echo $k['kelas'] ?></h4>														
 															</div>
 														</div>
 													</div>
@@ -82,7 +87,8 @@
 														<div class="col-7 col-stats">
 															<div class="numbers">
 																<p class="card-category">Matkul</p>
-																<h4 class="card-title">13</h4>
+																<h4 class="card-title"><?php  echo $k['matkul'] ?></h4>
+																<?php endforeach; ?>
 															</div>
 														</div>
 													</div>
