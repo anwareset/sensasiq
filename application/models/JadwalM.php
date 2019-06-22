@@ -148,7 +148,7 @@ class JadwalM extends CI_Model{
 
   //menampilkan jadwal berdasarkan id_jadwal untuk update
   public function tampil_jadwal_update($id_jadwal){
-    $this->db->select('tbjadwal.id_jadwal as id_jadwal, tbjadwal.waktu as waktu, tbkelas.nama_kelas as nama_kelas, tbmatkul.nama_matkul as nama_matkul');
+    $this->db->select('tbjadwal.id_jadwal as id_jadwal, tbjadwal.nip as nip, tbjadwal.waktu as waktu, tbkelas.nama_kelas as nama_kelas, tbmatkul.nama_matkul as nama_matkul');
     $this->db->order_by('waktu', 'ASC');
     $this->db->from('tbjadwal');
     $this->db->join('tbkelas', 'tbkelas.id_kelas = tbjadwal.id_kelas');
@@ -165,10 +165,20 @@ class JadwalM extends CI_Model{
     $this->db->update('tbjadwal', $data);
   }
 
+  //tapil data dashbord
   public function count($nip){    
     $this->db->select('count(nip) as kelas, count(id_matkul) as matkul');
     $this->db->from('tbjadwal');
     $this->db->where('nip',$nip);
+    $result = $this->db->get();
+    return $result->result_array();
+  }
+
+    public function count_mahasiswa($nip){    
+    $this->db->select('count(tbmahasiswa.nama_mahasiswa) as mhs');
+    $this->db->from('tbjadwal');
+    $this->db->join('tbmahasiswa','tbmahasiswa.id_kelas = tbjadwal.id_kelas');
+    $this->db->where('tbjadwal.nip',$nip);
     $result = $this->db->get();
     return $result->result_array();
   }

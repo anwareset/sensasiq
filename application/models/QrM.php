@@ -1,6 +1,8 @@
 <?php
 // extends class Model
-class QrM extends CI_Model{
+class QrM extends CI_Model {
+
+///////////////////////// CRUD API  /////////////////////////
 
   // response jika field ada yang kosong
   public function empty_response(){
@@ -123,6 +125,25 @@ class QrM extends CI_Model{
       }
     }
   }
+
+///////////////////////// CRUD WEB  /////////////////////////
+
+  public function generateQr($datainsert){
+    $insert = $this->db->insert("tbqr", $datainsert);
+  }
+
+  public function updateQr($data){
+    $this->db->where($data);
+    $dataQr = $this->db->get("tbqr")->result_array();
+    $set['qr'] = md5($this->encryption->encrypt($this->encryption->decrypt(md5($dataQr[0]['qr']))));
+    $whereupdate['id_qr'] = $dataQr[0]['id_qr'];
+    $this->db->where($whereupdate);
+    $update = $this->db->update("tbqr", $set);
+    $this->db->where($whereupdate);
+    $dataQr = $this->db->get("tbqr")->result_array();
+    return $dataQr;
+  }
+
 }
 
 ?>

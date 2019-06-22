@@ -43,11 +43,11 @@
 					<div class="row">
 						<div class="col-md-5 ml-auto mr-auto">
 							<div class="card">
-								<div class="card-body text-center">
-									<img src="<?php echo base_url('assets/img/qr-demo.png') ?>" alt="qr-demo" style="max-height: 100%; max-width: 100%" />
+								<div id="qr-body" class="card-body text-center">
+									<?php $this->load->view("generated_qr_img") ?>
 								</div>
 								<div class="card-footer text-center">
-									<p class="card-category">Silahkan pindah QR Code berikut dengan <b>SENSASIQ APP</b><br />QR Code akan diperbarui setiap <b>45 detik</b> sekali</p>
+									<p class="card-category">Silahkan pindai QR Code berikut dengan <b>SENSASIQ APP</b><br />QR Code akan diperbarui setiap <b>45 detik</b> sekali</p>
 								</div>
 							</div>
 						</div>

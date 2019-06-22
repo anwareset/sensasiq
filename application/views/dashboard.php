@@ -41,10 +41,12 @@
 																<i class="flaticon-users"></i>
 															</div>
 														</div>
+														<?php foreach ($mahasiswa as $m) :?>
 														<div class="col-7 col-stats">
 															<div class="numbers">
 																<p class="card-category">Mahasiswa</p>
-																<h4 class="card-title">666</h4>
+																<h4 class="card-title"><?php  echo $m['mhs'] ?></h4>
+														<?php endforeach; ?>
 															</div>
 														</div>
 													</div>
@@ -60,11 +62,7 @@
 																<i class="flaticon-network"></i>
 															</div>
 														</div>
-														<?php 
-														 // $nip=$this->session->userdata('nip');
-           				// 								 $res = $this->db->query("SELECT count(nip) as kelas,count(id_matkul) as matkul from tbjadwal where nip='$nip' ");
-           				// 								 $kelas = $res->result_array();
-       													 foreach ($kelas as $k) :?>
+														<?php foreach ($kelas as $k) :?>
 														<div class="col-7 col-stats">
 															<div class="numbers">
 																<p class="card-category">Kelas</p>
@@ -112,13 +110,7 @@
 													<i class="fa fa-pencil"></i>
 												</span>
 												Export
-											</a>
-											<a href="#" class="btn btn-info btn-border btn-round btn-sm">
-												<span class="btn-label">
-													<i class="fa fa-print"></i>
-												</span>
-												Print
-											</a>
+											</a>											
 										</div>
 									</div>
 								</div>

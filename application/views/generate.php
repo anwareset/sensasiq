@@ -45,7 +45,7 @@
 												<label for="exampleFormControlSelect1">Jadwal</label>
 												<select class="form-control" name="id_jadwal" id="exampleFormControlSelect1">
 													<?php foreach ($jadwal as $datajadwal) : ?>
-													<option value="<?php $datajadwal['id_jadwal']; ?>" ><?php echo $datajadwal['nama_matkul'].' - '.$datajadwal['nama_kelas']; ?></option>
+													<option value="<?php echo $datajadwal['id_jadwal']; ?>" ><?php echo $datajadwal['nama_matkul'].' - '.$datajadwal['nama_kelas']; ?></option>
 													<?php endforeach; ?>
 												</select>
 											</div>

@@ -44,15 +44,15 @@
 	<!-- NOTIFIKASI SWEETALERT SERBAGUNA -->
 	<?php
     if (!empty($this->session->flashdata('pesan'))) {
-    	$updateprofil = $this->session->flashdata('pesan');
+    	$sweetAlert = $this->session->flashdata('pesan');
         echo "
         	<script>
 		      $(document).ready(function() {
-				swal('".$updateprofil['pesan3']."', '".$updateprofil['pesan1']."', {
-					icon : '".$updateprofil['pesan2']."',
+				swal('".$sweetAlert['pesan3']."', '".$sweetAlert['pesan1']."', {
+					icon : '".$sweetAlert['pesan2']."',
 					buttons: {        			
 						confirm: {
-							className : '".$updateprofil['pesan4']."'
+							className : '".$sweetAlert['pesan4']."'
 						}
 					}, timer: 1100,
 				});
