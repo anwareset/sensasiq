@@ -7,16 +7,6 @@
 									Bantuan
 								</a>
 							</li>
-							<li class="nav-item">
-								<a class="nav-link" href="#">
-									Kebijakan Privasi
-								</a>
-							</li>
-							<li class="nav-item">
-								<a class="nav-link" href="#">
-									Ketentuan Layanan
-								</a>
-							</li>
 						</ul>
 					</nav>
 					<div class="copyright ml-auto">
