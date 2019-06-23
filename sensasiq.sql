@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.5
+-- version 4.9.0.1
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Waktu pembuatan: 22 Jun 2019 pada 08.51
--- Versi server: 10.1.38-MariaDB
--- Versi PHP: 7.3.3
+-- Host: localhost
+-- Generation Time: Jun 23, 2019 at 09:25 AM
+-- Server version: 10.3.15-MariaDB
+-- PHP Version: 7.3.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -25,7 +25,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tbabsen`
+-- Table structure for table `tbabsen`
 --
 
 CREATE TABLE `tbabsen` (
@@ -33,11 +33,11 @@ CREATE TABLE `tbabsen` (
   `id_jadwal` int(20) NOT NULL,
   `id_qr` int(80) NOT NULL,
   `nim` int(20) NOT NULL,
-  `waktu` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+  `waktu` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data untuk tabel `tbabsen`
+-- Dumping data for table `tbabsen`
 --
 
 INSERT INTO `tbabsen` (`id_absen`, `id_jadwal`, `id_qr`, `nim`, `waktu`) VALUES
@@ -54,7 +54,7 @@ INSERT INTO `tbabsen` (`id_absen`, `id_jadwal`, `id_qr`, `nim`, `waktu`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tbdosen`
+-- Table structure for table `tbdosen`
 --
 
 CREATE TABLE `tbdosen` (
@@ -64,11 +64,11 @@ CREATE TABLE `tbdosen` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data untuk tabel `tbdosen`
+-- Dumping data for table `tbdosen`
 --
 
 INSERT INTO `tbdosen` (`nip`, `nama_dosen`, `password`) VALUES
-(6969, 'Ardick Sanjaya Ea', 'b11d5ece6353d17f85c5ad30e0a02360'),
+(6969, 'Ardi Sanjaea', 'b11d5ece6353d17f85c5ad30e0a02360'),
 (15120001, 'elga asfa', 'b11d5ece6353d17f85c5ad30e0a02360'),
 (15120002, 'M tri anwarudin', 'b11d5ece6353d17f85c5ad30e0a02360'),
 (15120003, 'leon prastya', 'b11d5ece6353d17f85c5ad30e0a02360'),
@@ -83,7 +83,7 @@ INSERT INTO `tbdosen` (`nip`, `nama_dosen`, `password`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tbjadwal`
+-- Table structure for table `tbjadwal`
 --
 
 CREATE TABLE `tbjadwal` (
@@ -95,7 +95,7 @@ CREATE TABLE `tbjadwal` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data untuk tabel `tbjadwal`
+-- Dumping data for table `tbjadwal`
 --
 
 INSERT INTO `tbjadwal` (`id_jadwal`, `id_matkul`, `id_kelas`, `nip`, `waktu`) VALUES
@@ -119,7 +119,7 @@ INSERT INTO `tbjadwal` (`id_jadwal`, `id_matkul`, `id_kelas`, `nip`, `waktu`) VA
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tbkelas`
+-- Table structure for table `tbkelas`
 --
 
 CREATE TABLE `tbkelas` (
@@ -128,7 +128,7 @@ CREATE TABLE `tbkelas` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data untuk tabel `tbkelas`
+-- Dumping data for table `tbkelas`
 --
 
 INSERT INTO `tbkelas` (`id_kelas`, `nama_kelas`) VALUES
@@ -143,19 +143,19 @@ INSERT INTO `tbkelas` (`id_kelas`, `nama_kelas`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tbmahasiswa`
+-- Table structure for table `tbmahasiswa`
 --
 
 CREATE TABLE `tbmahasiswa` (
   `nim` int(20) NOT NULL,
-  `nama_mahasiswa` varchar(40) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `nama_mahasiswa` varchar(60) COLLATE utf8mb4_unicode_ci NOT NULL,
   `password` varchar(80) COLLATE utf8mb4_unicode_ci NOT NULL,
   `device_id` varchar(80) COLLATE utf8mb4_unicode_ci NOT NULL,
   `id_kelas` int(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data untuk tabel `tbmahasiswa`
+-- Dumping data for table `tbmahasiswa`
 --
 
 INSERT INTO `tbmahasiswa` (`nim`, `nama_mahasiswa`, `password`, `device_id`, `id_kelas`) VALUES
@@ -173,7 +173,7 @@ INSERT INTO `tbmahasiswa` (`nim`, `nama_mahasiswa`, `password`, `device_id`, `id
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tbmatkul`
+-- Table structure for table `tbmatkul`
 --
 
 CREATE TABLE `tbmatkul` (
@@ -182,7 +182,7 @@ CREATE TABLE `tbmatkul` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data untuk tabel `tbmatkul`
+-- Dumping data for table `tbmatkul`
 --
 
 INSERT INTO `tbmatkul` (`id_matkul`, `nama_matkul`) VALUES
@@ -204,7 +204,7 @@ INSERT INTO `tbmatkul` (`id_matkul`, `nama_matkul`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tbqr`
+-- Table structure for table `tbqr`
 --
 
 CREATE TABLE `tbqr` (
@@ -214,7 +214,7 @@ CREATE TABLE `tbqr` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data untuk tabel `tbqr`
+-- Dumping data for table `tbqr`
 --
 
 INSERT INTO `tbqr` (`id_qr`, `nip`, `qr`) VALUES
@@ -231,14 +231,15 @@ INSERT INTO `tbqr` (`id_qr`, `nip`, `qr`) VALUES
 (12, 15120004, '3b0d1cff2b550962360dd47dc83b8cd6'),
 (13, 15120005, '3645ad077cb67b4c5b139472434196e2'),
 (14, 15120006, '9399d914a5ad096881e9e58826606d87'),
-(15, 15120007, 'e5192088740df1e58a77e04993b45eeb');
+(15, 15120007, 'e5192088740df1e58a77e04993b45eeb'),
+(16, 6969, 'd1c0227d0b3c9f60e87361c0c1c3bf84');
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indeks untuk tabel `tbabsen`
+-- Indexes for table `tbabsen`
 --
 ALTER TABLE `tbabsen`
   ADD PRIMARY KEY (`id_absen`),
@@ -247,13 +248,13 @@ ALTER TABLE `tbabsen`
   ADD KEY `nim` (`nim`);
 
 --
--- Indeks untuk tabel `tbdosen`
+-- Indexes for table `tbdosen`
 --
 ALTER TABLE `tbdosen`
   ADD PRIMARY KEY (`nip`);
 
 --
--- Indeks untuk tabel `tbjadwal`
+-- Indexes for table `tbjadwal`
 --
 ALTER TABLE `tbjadwal`
   ADD PRIMARY KEY (`id_jadwal`),
@@ -262,71 +263,71 @@ ALTER TABLE `tbjadwal`
   ADD KEY `nip` (`nip`);
 
 --
--- Indeks untuk tabel `tbkelas`
+-- Indexes for table `tbkelas`
 --
 ALTER TABLE `tbkelas`
   ADD PRIMARY KEY (`id_kelas`);
 
 --
--- Indeks untuk tabel `tbmahasiswa`
+-- Indexes for table `tbmahasiswa`
 --
 ALTER TABLE `tbmahasiswa`
   ADD PRIMARY KEY (`nim`),
   ADD KEY `tbmahasiswa_ibfk_1` (`id_kelas`);
 
 --
--- Indeks untuk tabel `tbmatkul`
+-- Indexes for table `tbmatkul`
 --
 ALTER TABLE `tbmatkul`
   ADD PRIMARY KEY (`id_matkul`);
 
 --
--- Indeks untuk tabel `tbqr`
+-- Indexes for table `tbqr`
 --
 ALTER TABLE `tbqr`
   ADD PRIMARY KEY (`id_qr`),
   ADD KEY `nip` (`nip`);
 
 --
--- AUTO_INCREMENT untuk tabel yang dibuang
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT untuk tabel `tbabsen`
+-- AUTO_INCREMENT for table `tbabsen`
 --
 ALTER TABLE `tbabsen`
   MODIFY `id_absen` int(80) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
--- AUTO_INCREMENT untuk tabel `tbjadwal`
+-- AUTO_INCREMENT for table `tbjadwal`
 --
 ALTER TABLE `tbjadwal`
   MODIFY `id_jadwal` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
--- AUTO_INCREMENT untuk tabel `tbkelas`
+-- AUTO_INCREMENT for table `tbkelas`
 --
 ALTER TABLE `tbkelas`
   MODIFY `id_kelas` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
--- AUTO_INCREMENT untuk tabel `tbmatkul`
+-- AUTO_INCREMENT for table `tbmatkul`
 --
 ALTER TABLE `tbmatkul`
   MODIFY `id_matkul` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
--- AUTO_INCREMENT untuk tabel `tbqr`
+-- AUTO_INCREMENT for table `tbqr`
 --
 ALTER TABLE `tbqr`
-  MODIFY `id_qr` int(80) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id_qr` int(80) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
--- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
+-- Constraints for dumped tables
 --
 
 --
--- Ketidakleluasaan untuk tabel `tbabsen`
+-- Constraints for table `tbabsen`
 --
 ALTER TABLE `tbabsen`
   ADD CONSTRAINT `tbabsen_ibfk_1` FOREIGN KEY (`id_jadwal`) REFERENCES `tbjadwal` (`id_jadwal`) ON DELETE CASCADE ON UPDATE CASCADE,
@@ -334,7 +335,7 @@ ALTER TABLE `tbabsen`
   ADD CONSTRAINT `tbabsen_ibfk_3` FOREIGN KEY (`nim`) REFERENCES `tbmahasiswa` (`nim`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Ketidakleluasaan untuk tabel `tbjadwal`
+-- Constraints for table `tbjadwal`
 --
 ALTER TABLE `tbjadwal`
   ADD CONSTRAINT `tbjadwal_ibfk_1` FOREIGN KEY (`id_matkul`) REFERENCES `tbmatkul` (`id_matkul`) ON DELETE CASCADE ON UPDATE CASCADE,
@@ -342,13 +343,13 @@ ALTER TABLE `tbjadwal`
   ADD CONSTRAINT `tbjadwal_ibfk_3` FOREIGN KEY (`nip`) REFERENCES `tbdosen` (`nip`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Ketidakleluasaan untuk tabel `tbmahasiswa`
+-- Constraints for table `tbmahasiswa`
 --
 ALTER TABLE `tbmahasiswa`
   ADD CONSTRAINT `tbmahasiswa_ibfk_1` FOREIGN KEY (`id_kelas`) REFERENCES `tbkelas` (`id_kelas`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Ketidakleluasaan untuk tabel `tbqr`
+-- Constraints for table `tbqr`
 --
 ALTER TABLE `tbqr`
   ADD CONSTRAINT `tbqr_ibfk_1` FOREIGN KEY (`nip`) REFERENCES `tbdosen` (`nip`) ON DELETE CASCADE ON UPDATE CASCADE;

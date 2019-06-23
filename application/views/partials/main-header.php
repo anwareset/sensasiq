@@ -2,7 +2,7 @@
 			<div class="logo-header" data-background-color="blue">
 				
 				<a href="<?php echo base_url('') ?>" class="logo">
-					<img src="<?php echo base_url('assets/img/logo.svg') ?>" alt="navbar brand" class="navbar-brand">
+					<img src="<?php echo base_url('assets/img/logo-sensasiq.png') ?>" alt="navbar brand" class="navbar-brand">
 				</a>
 				<button class="navbar-toggler sidenav-toggler ml-auto" type="button" data-toggle="collapse" data-target="collapse" aria-expanded="false" aria-label="Toggle navigation">
 					<span class="navbar-toggler-icon">
