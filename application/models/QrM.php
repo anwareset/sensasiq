@@ -132,16 +132,20 @@ class QrM extends CI_Model {
     $insert = $this->db->insert("tbqr", $datainsert);
   }
 
-  public function updateQr($data){
-    $this->db->where($data);
-    $dataQr = $this->db->get("tbqr")->result_array();
-    $set['qr'] = md5($this->encryption->encrypt($this->encryption->decrypt(md5($dataQr[0]['qr']))));
-    $whereupdate['id_qr'] = $dataQr[0]['id_qr'];
-    $this->db->where($whereupdate);
-    $update = $this->db->update("tbqr", $set);
-    $this->db->where($whereupdate);
-    $dataQr = $this->db->get("tbqr")->result_array();
-    return $dataQr;
+  public function updateQr($data = NULL){
+    if (!empty($data)) {
+      $this->db->where($data);
+      $dataQr = $this->db->get("tbqr")->result_array();
+      if (!empty($dataQr[0]['qr'])) {
+        $set['qr'] = $this->encryption->encrypt(md5($this->encryption->decrypt(md5($dataQr[0]['qr']))));
+        $whereupdate['id_qr'] = $dataQr[0]['id_qr'];
+        $this->db->where($whereupdate);
+        $update = $this->db->update("tbqr", $set);
+        $this->db->where($whereupdate);
+        $dataQr = $this->db->get("tbqr")->result_array();
+        return $dataQr;
+      }
+    }
   }
 
 }

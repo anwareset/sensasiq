@@ -8,6 +8,9 @@ application/logs/*
 
 !application/*/.htaccess
 
+assets/qrimg/*
+!assets/qrimg/index.html
+
 composer.lock
 
 user_guide_src/build/*
