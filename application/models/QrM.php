@@ -137,7 +137,7 @@ class QrM extends CI_Model {
       $this->db->where($data);
       $dataQr = $this->db->get("tbqr")->result_array();
       if (!empty($dataQr[0]['qr'])) {
-        $set['qr'] = $this->encryption->encrypt(md5($this->encryption->decrypt(md5($dataQr[0]['qr']))));
+        $set['qr'] = md5($this->encryption->encrypt($this->encryption->decrypt(md5($dataQr[0]['qr']))));
         $whereupdate['id_qr'] = $dataQr[0]['id_qr'];
         $this->db->where($whereupdate);
         $update = $this->db->update("tbqr", $set);
