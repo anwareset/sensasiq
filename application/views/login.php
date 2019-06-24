@@ -63,24 +63,17 @@
 
               <div class="form-group text-right">
                 <a href="auth-forgot-password.html" class="float-left mt-3">
-                  Lupa kata sandi?
+                  Login bermasalah?
                 </a>
                 <button type="submit" class="btn btn-primary btn-lg btn-icon icon-right" tabindex="4">
                   Login
                 </button>
               </div>
-
-              <div class="mt-5 text-center">
-                Belum memiliki akun? <a href="auth-register.html">Hubungi admin</a>
-              </div>
             </form>
 
-            <div class="text-center mt-5 text-small">
-              Made with ❤ by UNPKediri
-              <div class="mt-2">
-                <a href="#">Kebijakan Privasi</a>
-                <div class="bullet"></div>
-                <a href="#">Ketentuan Layanan</a>
+            <div class="text-center mt-5">
+              <div class="mt-2 text-small">
+                Made with ❤ by UNPKediri
               </div>
             </div>
           </div>
