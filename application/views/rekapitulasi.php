@@ -57,15 +57,15 @@
 												</tr>
 											</tfoot>
 											<tbody>
-												<?php foreach ($jadwal as $datajadwal) : ?>
+												<?php foreach ($rekap as $r) : ?>
 												<tr>
-													<td><?php echo $datajadwal['waktu']; ?></td>
-								                    <td><?php echo $datajadwal['nama_matkul']; ?></td>
-								                    <td><?php echo $datajadwal['nama_kelas']; ?></td>
+													<td><?php echo $r['waktu']; ?></td>
+								                    <td><?php echo $r['matkul']; ?></td>
+								                    <td><?php echo $r['kelas']; ?></td>
 													<td>
 														<div class="form-button-action">
 															
-															<a href="<?php echo base_url('aktivitas/updatejadwal/').$datajadwal['id_jadwal']; ?>"><div title="Perbarui Jadwal" class="btn btn-link btn-primary btn-lg"><i class="fas fa-edit"></i></div></a>
+															<a href="<?php echo base_url('aktivitas/updatejadwal/').$r['id']; ?>"><div title="Perbarui Jadwal" class="btn btn-link btn-primary btn-lg"><i class="fas fa-edit"></i></div></a>
 														</div>
 													</td>
 												</tr>

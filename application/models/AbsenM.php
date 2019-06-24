@@ -151,6 +151,18 @@ class AbsenM extends CI_Model{
     $result = $this->db->limit(5,0)->get();
     return $result->result_array();
   }
+
+  //tampil data rekapitulasi
+  public function tampil_rekapitulasi($nip){
+    $this->db->select('tbabsen.id_absen as id,tbabsen.waktu as waktu, tbmatkul.nama_matkul as matkul, tbkelas.nama_kelas as kelas');
+    $this->db->from('tbabsen');          
+    $this->db->join('tbjadwal','tbabsen.id_jadwal = tbjadwal.id_jadwal');
+    $this->db->join('tbkelas','tbkelas.id_kelas = tbjadwal.id_kelas');    
+    $this->db->join('tbmatkul','tbmatkul.id_matkul = tbjadwal.id_matkul');
+    $this->db->where('tbjadwal.nip',$nip);
+    $result = $this->db->get();
+    return $result->result_array();
+  }
 }
 
 ?>
