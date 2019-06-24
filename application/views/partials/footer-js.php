@@ -54,7 +54,7 @@
 						confirm: {
 							className : '".$sweetAlert['pesan4']."'
 						}
-					}, timer: 1100,
+					}, timer: 3000,
 				});
 		      });
 		  	</script>

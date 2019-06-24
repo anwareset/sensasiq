@@ -5,7 +5,7 @@
 </head>
 
 <body>
-	<div class="wrapper">
+	<div class="wrapper overlay-sidebar">
 		<div class="main-header">
 			<div class="logo-header" data-background-color="blue">
 				<a href="<?php echo base_url('') ?>" class="logo">
@@ -18,7 +18,6 @@
 					<div class="navbar-nav topbar-nav mr-auto align-items-center">
 						<div class="navbar-left">		
 							<input type="button" class="btn btn-primary" onclick="location.href='<?php echo base_url('bantuan/tentang') ?>';" value="Tentang">
-							<input type="button" class="btn btn-primary" onclick="location.href='<?php echo base_url('bantuan/faq') ?>';" value="FAQ">
 							<input type="button" class="btn btn-primary" onclick="location.href='<?php echo base_url('auth') ?>';" value="Login">
 						</div>
 					</div>
@@ -33,7 +32,7 @@
 							<div class="card-body">
 								<h4 class="card-title">Hubungi Admin</h4>
 								<p>Silahkan mengisi form berikut untuk menghubungi Admin</p><br />
-								<form method="POST" action="<?php echo base_url('bantuan/kontak') ?>">
+								<form method="POST" action="<?php echo base_url('bantuan/kontak') ?>"> 
 									<div class="row">
 										<div class="col">
 											<div class="form-group">
@@ -46,20 +45,20 @@
 											</div>
 											<div class="form-group">
 												<label>Alamat Email</label>
-												<input type="email" class="form-control" placeholder="alamat@email.anda">
+												<input type="email" name="email" class="form-control" placeholder="alamat@email.anda">
 											</div>
 											<div class="form-group">
 												<label for="exampleFormControlSelect1">Permohonan</label>
 												<select class="form-control" name="permohonan" id="exampleFormControlSelect1">
 													<option value="1" >Registrasi akun</option>
-													<option value="2" >Lupa kata sandi</option>
+													<option value="2"form >Lupa kata sandi</option>
 												</select>
 											</div>
 											<div class="form-group">
 												<label>Keterangan</label>
-												<textarea class="form-control" rows="3"></textarea>
+												<textarea name="keterangan" class="form-control" rows="3"></textarea>
 											</div>
-											<div class="form-group float-right">
+											<div class="form-group text-center">
 												<button type="submit" value="Kirim" name="btnKirim" class="btn btn-primary">Kirim</button>
 											</div>
 									</div>
@@ -78,6 +77,7 @@
 			</div>
 		</div>
 	</div>
+	<?php $this->load->view("partials/footer-js.php") ?>
 </body>
 </html>
 <?php $this->session->unset_userdata('authenticated'); ?>
