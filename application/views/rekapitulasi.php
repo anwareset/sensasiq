@@ -43,31 +43,29 @@
 											<thead>
 												<tr>
 													<th>Waktu</th>
+													<th>NIM</th>
+													<th>Nama</th>
 													<th>Mata Kuliah</th>
-													<th>Kelas</th>
-													<th style="width: 10%">Aksi</th>
+													<th>Kelas</th>													
 												</tr>
 											</thead>
 											<tfoot>
 												<tr>
 													<th>Waktu</th>
+													<th>NIM</th>
+													<th>Nama</th>
 													<th>Mata Kuliah</th>
-													<th>Kelas</th>
-													<th>Aksi</th>
+													<th>Kelas</th>													
 												</tr>
 											</tfoot>
 											<tbody>
 												<?php foreach ($rekap as $r) : ?>
 												<tr>
 													<td><?php echo $r['waktu']; ?></td>
+													<td><?php echo $r['nim']; ?></td>
+													<td><?php echo $r['nama']; ?></td>
 								                    <td><?php echo $r['matkul']; ?></td>
-								                    <td><?php echo $r['kelas']; ?></td>
-													<td>
-														<div class="form-button-action">
-															
-															<a href="<?php echo base_url('aktivitas/updatejadwal/').$r['id']; ?>"><div title="Perbarui Jadwal" class="btn btn-link btn-primary btn-lg"><i class="fas fa-edit"></i></div></a>
-														</div>
-													</td>
+								                    <td><?php echo $r['kelas']; ?></td>													
 												</tr>
 												<?php endforeach; ?>
 											</tbody>
