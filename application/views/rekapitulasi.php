@@ -30,7 +30,7 @@
 								<i class="flaticon-right-arrow"></i>
 							</li>
 							<li class="nav-item">
-								<a href="<?php echo base_url('aktivitas'); ?>">Aktivitas</a>
+								<a href="<?php echo base_url('rekapitulasi'); ?>">Rekapitulasi</a>
 							</li>
 						</ul>
 					</div>
