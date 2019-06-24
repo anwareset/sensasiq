@@ -141,7 +141,7 @@ class AbsenM extends CI_Model{
   }
 
   public function riwayat_generate($nip){
-    $this->db->select('tbmatkul.nama_matkul as matkul, tbabsen.waktu as waktu');
+    $this->db->select('tbjadwal.nip as nip,tbmatkul.nama_matkul as matkul, tbabsen.waktu as waktu');
     $this->db->from('tbjadwal');      
     $this->db->group_by('tbabsen.id_qr');
     $this->db->join('tbmatkul','tbmatkul.id_matkul = tbjadwal.id_matkul');

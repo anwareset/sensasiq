@@ -180,14 +180,17 @@ var statisticsChart = new Chart(ctx, {
 			borderWidth: 2,
 			data: [
 			<?php 
+			foreach ($riwayat as $r):
+			$nip = $r['nip'];
 			for ($i=0; $i<12; $i++){
-			$res[$i] = $this->db->query("select * from tbabsen where waktu like concat(year(curdate()),'-_$i%')");
+			$res[$i] = $this->db->query("SELECT a.* from tbabsen a,tbjadwal j,tbdosen d where a.id_jadwal=j.id_jadwal and j.nip=d.nip and d.nip=$nip and a.waktu like concat(year(curdate()),'-_$i%')");
 			$bulan[$i] = $res[$i]->num_rows();
 			}
 			echo $bulan[0];
 			for($i = 1;$i<12;$i++){
 				echo ",".$bulan[$i];
 			}
+			endforeach;
 			?> 
 			]
 		}]
