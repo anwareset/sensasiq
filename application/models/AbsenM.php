@@ -141,7 +141,7 @@ class AbsenM extends CI_Model{
   }
 
   public function riwayat_generate($nip){
-    $this->db->select('tbmatkul.nama_matkul as matkul, tbabsen.waktu as waktu');
+    $this->db->select('tbjadwal.nip as nip,tbmatkul.nama_matkul as matkul, tbabsen.waktu as waktu');
     $this->db->from('tbjadwal');      
     $this->db->group_by('tbabsen.id_qr');
     $this->db->join('tbmatkul','tbmatkul.id_matkul = tbjadwal.id_matkul');
@@ -154,11 +154,12 @@ class AbsenM extends CI_Model{
 
   //tampil data rekapitulasi
   public function tampil_rekapitulasi($nip){
-    $this->db->select('tbabsen.id_absen as id,tbabsen.waktu as waktu, tbmatkul.nama_matkul as matkul, tbkelas.nama_kelas as kelas');
+    $this->db->select('tbabsen.id_absen as id,tbabsen.waktu as waktu,tbmahasiswa.nim as nim,tbmahasiswa.nama_mahasiswa as nama, tbmatkul.nama_matkul as matkul, tbkelas.nama_kelas as kelas');
     $this->db->from('tbabsen');          
-    $this->db->join('tbjadwal','tbabsen.id_jadwal = tbjadwal.id_jadwal');
-    $this->db->join('tbkelas','tbkelas.id_kelas = tbjadwal.id_kelas');    
+    $this->db->join('tbjadwal','tbabsen.id_jadwal = tbjadwal.id_jadwal');    
+    $this->db->join('tbkelas','tbkelas.id_kelas = tbjadwal.id_kelas');  
     $this->db->join('tbmatkul','tbmatkul.id_matkul = tbjadwal.id_matkul');
+    $this->db->join('tbmahasiswa','tbmahasiswa.nim = tbabsen.nim'); 
     $this->db->where('tbjadwal.nip',$nip);
     $result = $this->db->get();
     return $result->result_array();
