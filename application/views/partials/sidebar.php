@@ -17,8 +17,8 @@
 							<div class="collapse in" id="collapseExample">
 								<ul class="nav">
 									<li>
-										<a href="<?php echo base_url('profil') ?>">
-											<span class="link-collapse">Edit Profile</span>
+										<a href="<?php echo base_url('auth/logout') ?>">
+											<span class="link-collapse">Logout</span>
 										</a>
 									</li>
 								</ul>
@@ -66,6 +66,14 @@
 								    echo $result->num_rows();
 									?>
 								</span>
+							</a>
+						</li>
+					</ul>
+					<ul class="nav nav-primary">
+						<li class="nav-item <?php if($this->session->flashdata('activemenu') == 'profil'): echo "active"; endif; ?>">
+							<a href="<?php echo base_url('profil'); ?>">
+								<i class="fas fa-user"></i>
+								<p>Profile</p>
 							</a>
 						</li>
 					</ul>

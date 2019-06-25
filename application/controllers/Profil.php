@@ -8,6 +8,7 @@ class Profil extends CI_Controller {
 	}
 
 	public function index(){
+		$this->session->set_flashdata('activemenu','profil');
     	$this->load->view('profil');
 	}
 
