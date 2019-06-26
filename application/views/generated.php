@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<?php $this->load->view("partials/head.php"); ?>
+<?php $this->load->view("partials/head.php");?>
 </head>
 <body>
 	<div class="wrapper">
@@ -54,14 +54,14 @@
 			</footer>
 		</div>
 	</div>
-	<?php $this->load->view("partials/footer-js.php") ?>
+	<?php $this->load->view("partials/footer-js.php")?>
 
 <script type="text/javascript">
 	var counter_refresh = setInterval(
 	function (){
      	var value = parseInt($('#timer').find('.value').text(), 10);
  			if (value < 2){
- 				value = 45;
+ 				value = 10;
  			} else {
  				value--;
  			}		  

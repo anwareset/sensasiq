@@ -41,6 +41,8 @@ class Auth extends CI_Controller {
 	}
 
 	public function logout(){
+		$un = $this->session->file;
+		unlink($_SERVER['DOCUMENT_ROOT'].'/sensasiq/assets/qrimg/'.$un); 
 		$this->session->sess_destroy();
 		$this->session->set_flashdata('message', 'Anda telah keluar.');
 		redirect('auth');

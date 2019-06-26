@@ -133,17 +133,18 @@ class QrM extends CI_Model {
   }
 
   public function updateQr($data = NULL){
-    if (!empty($data)) {
+    if (!empty($data)) {      
       $this->db->where($data);
       $dataQr = $this->db->get("tbqr")->result_array();
-      if (!empty($dataQr[0]['qr'])) {
+      if (!empty($dataQr[0]['qr'])) {   
+        unlink($_SERVER['DOCUMENT_ROOT'].'/sensasiq/assets/qrimg/'.$dataQr[0]['qr'].".png");     
         $set['qr'] = md5($this->encryption->encrypt($this->encryption->decrypt(md5($dataQr[0]['qr']))));
         $whereupdate['id_qr'] = $dataQr[0]['id_qr'];
         $this->db->where($whereupdate);
         $update = $this->db->update("tbqr", $set);
         $this->db->where($whereupdate);
         $dataQr = $this->db->get("tbqr")->result_array();
-        return $dataQr;
+        return $dataQr;        
       }
     }
   }

@@ -28,41 +28,45 @@ class Generate extends CI_Controller {
 		        );
 		    endforeach;
 		    $lokasiFileQr = $_SERVER['DOCUMENT_ROOT'].'/sensasiq/assets/qrimg/';
-			$file_name = $qrRaw."-QrCode".rand(2,200).".png";
+			$file_name = $qrRaw.".png";
 			$tempdir = $lokasiFileQr.$file_name;
 			QRcode::png($qrRaw,$tempdir,QR_ECLEVEL_H,15,0);
 			$this->QrM->generateQr($datainsert);
 			$infoQr = array(
 				"fileQr"	=> $file_name,
-				"qr"		=> $qrRaw
-			);			
+				"qr"		=> $qrRaw,
+			);				
+			$session['file'] = $file_name;
+			$this->session->set_userdata($session);					
 			$this->load->view('generated', $infoQr);
 		} else {				
 			redirect('generate');
 		}
 	}
 
-	public function generated_refresh($qr){
+	public function generated_refresh($qr){	
 		$data = array(
 			"nip"	=>	$this->session->nip,
-			"qr"	=>	$qr
+			"qr"	=>	$qr,			
 		);
-		$dataQr['dataQr'] = $this->QrM->updateQr($data);
-		
+
+		$dataQr['dataQr'] = $this->QrM->updateQr($data);			
 		foreach ($dataQr as $datanya) :
 		    $dataku = array(
 		        "nip" => $datanya[0]['nip'],
-		        "qr"  => $qrRaw = $datanya[0]['qr']
+		        "qr"  => $qrRaw = $datanya[0]['qr'],		        
 		    );
 		endforeach;
-		$lokasiFileQr = $_SERVER['DOCUMENT_ROOT'].'/sensasiq/assets/qrimg/';
-		$file_name = $qrRaw."-QrCode".rand(2,200).".png";
+		$lokasiFileQr = $_SERVER['DOCUMENT_ROOT'].'/sensasiq/assets/qrimg/';		
+		$file_name = $qrRaw.".png";
 		$tempdir = $lokasiFileQr.$file_name;
 		QRcode::png($qrRaw,$tempdir,QR_ECLEVEL_H,15,0);
 		$infoQr = array(
 			"fileQr"	=> $file_name,
-			"qr"		=> $qrRaw
+			"qr"		=> $qrRaw,
 		);
+		$session['file'] = $file_name;
+		$this->session->set_userdata($session);
 		$this->load->view('generated_qr_img', $infoQr);
 	}
 	
