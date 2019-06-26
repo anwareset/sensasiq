@@ -6,9 +6,6 @@
 <div class="card-footer text-center" id="timer">
 	<p class="card-category">Silahkan pindai QR Code berikut dengan <b>SENSASIQ APP</b><br />QR Code akan diperbarui dalam <b><span class="value">10</span> detik</b></p>
 </div>
-<?php 
-echo $this->session->file;
-?>
 <!-- Untuk autoreload -->
 <script type="text/javascript">
 	var auto_refresh = setInterval(
