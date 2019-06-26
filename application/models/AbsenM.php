@@ -179,6 +179,9 @@ class AbsenM extends CI_Model{
   }
 
    public function cetak_rekapitulasi($kelas){
+    if( empty($kelas)){
+      return $this->empty_response();
+    }else{
     $this->db->select('tbabsen.id_absen as id,tbabsen.waktu as waktu,tbmahasiswa.nim as nim,tbmahasiswa.nama_mahasiswa as nama, tbmatkul.nama_matkul as matkul, tbkelas.nama_kelas as kelas');
     $this->db->from('tbabsen');          
     $this->db->join('tbjadwal','tbabsen.id_jadwal = tbjadwal.id_jadwal');    
@@ -189,6 +192,7 @@ class AbsenM extends CI_Model{
     $this->db->where('tbjadwal.nip',$this->session->nip);
     $result = $this->db->get();
     return $result->result_array();
+    }
   }
 }
 

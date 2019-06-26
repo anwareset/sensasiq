@@ -18,9 +18,13 @@ class Rekapitulasi extends CI_Controller {
 
 	public function cetak()
 	{
+		if (!empty($_POST['kelas'])) {
 		$kelas = $_POST['kelas'];
 		$data['cetak'] = $this->AbsenM->cetak_rekapitulasi($kelas);
     	$this->load->view('cetak_rekapitulasi',$data);
+    	}else {
+    		redirect('rekapitulasi');
+    	}
 	}
 	
 }
