@@ -4,12 +4,12 @@
 <?php 
 ?>
 <div class="card-footer text-center" id="timer">
-	<p class="card-category">Silahkan pindai QR Code berikut dengan <b>SENSASIQ APP</b><br />QR Code akan diperbarui dalam <b><span class="value">45</span> detik</b></p>
+	<p class="card-category">Silahkan pindai QR Code berikut dengan <b>SENSASIQ APP</b><br />QR Code akan diperbarui dalam <b><span class="value">30</span> detik</b></p>
 </div>
 <!-- Untuk autoreload -->
 <script type="text/javascript">
 	var auto_refresh = setInterval(
 	function () {
 	   $('#qr-body').load('<?php echo base_url('generate/generated_refresh/').$qr ?>').fadeIn("slow");
-	}, 45000); // reload setiap 45000 miliseconds
+	}, 30000); // reload setiap 30000 miliseconds
 </script>

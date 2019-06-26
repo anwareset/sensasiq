@@ -61,7 +61,7 @@
 	function (){
      	var value = parseInt($('#timer').find('.value').text(), 10);
  			if (value < 2){
- 				value = 45;
+ 				value = 30;
  			} else {
  				value--;
  			}		  

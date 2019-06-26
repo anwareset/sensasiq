@@ -12,7 +12,15 @@ class Rekapitulasi extends CI_Controller {
 	{
 		$this->session->set_flashdata('activemenu','rekapitulasi');
 		$data['rekap'] = $this->AbsenM->tampil_rekapitulasi($this->session->nip);
+		$data['kelas'] = $this->AbsenM->info_kelas($this->session->nip);
  	   	$this->load->view('rekapitulasi',$data);
+	}
+
+	public function cetak()
+	{
+		$kelas = $_POST['kelas'];
+		$data['cetak'] = $this->AbsenM->cetak_rekapitulasi($kelas);
+    	$this->load->view('cetak_rekapitulasi',$data);
 	}
 	
 }
