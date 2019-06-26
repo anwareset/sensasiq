@@ -10,9 +10,7 @@
     <div class="container-fluid">
     <div class="card mb-3">
             <div class="card-header">             
-              <?php foreach ($cetak as $c) : ?>
-              Rekap nilai kelas <strong><?php echo $c['kelas'] ?></strong>
-              <?php endforeach; ?>
+              Rekap nilai kelas <strong><?php echo $cetak[0]['kelas'] ?></strong>
                 </div>    
            <div class="card">
             <div class="card-body">
