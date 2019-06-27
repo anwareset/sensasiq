@@ -12,6 +12,11 @@ class Generate extends CI_Controller {
     
 	public function index()
 	{
+		if (!empty($this->session->file)) {
+			unlink($_SERVER['DOCUMENT_ROOT'].'/sensasiq/assets/qrimg/'.$this->session->file);
+			$this->session->unset_userdata('file');
+
+		}
 		$this->session->set_flashdata('activemenu','generate'); // Untuk active sidebar dinamis
  	   	$data['jadwal'] = $this->JadwalM->tampil_jadwal($this->session->nip);
  	   	$this->load->view('generate', $data);

@@ -36,7 +36,7 @@
 					</div>
 					<div class="row">
 						<div class="col-md-12">							
-								<button class="btn btn-primary" data-toggle="modal" data-target="#printnilai"><i class="fas fa-print"></i> Print</button>
+								<button class="btn btn-primary" data-toggle="modal" data-target="#printrekap"><i class="fas fa-print"></i> Print</button>
 							<div class="card">								
 								<div class="card-body">
 									<div class="table-responsive">
@@ -85,23 +85,25 @@
 		
 	</div>
 <!-- modal print -->
-	<div class="modal fade" id="printnilai" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	<div class="modal fade" id="printrekap" tabindex="-1" role="dialog" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
-      <div class="modal-header">
-        <h3 class="modal-title" id="exampleModalLabel">Pilih kelas yang akan di cetak</h3>
+      <div class="modal-header no-bd">
+        <h3 class="modal-title" >Pilih kelas yang akan di cetak</h3>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
         <form method="POST" action="rekapitulasi/cetak" target="_blank" id="print">
-          <div class="form-group">
-                  <select name="kelas" class="form-control">
+          <div class="form-group form-floating-label ">
+                  <select name="kelas" class="form-control input-border-bottom" id="selectFloatingLabel" required>
+                  <option value="">&nbsp;</option>
                   <?php foreach ($kelas as $k) : ?>
                     <option value="<?php echo $k['id'] ?>"><?php echo $k['kelas'] ?></option>
                     <?php endforeach; ?>
                   </select>
+                  <label for="selectFloatingLabel" class="placeholder">Kelas</label>
           </div>
       </div>
       <div class="modal-footer">
