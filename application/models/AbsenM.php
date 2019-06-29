@@ -18,7 +18,7 @@ class AbsenM extends CI_Model{
       $data = array(
         "id_jadwal"=>$id_jadwal,
         "id_qr"=>$id_qr,
-        "nim"=>nim
+        "nim"=>$nim
       );
       $insert = $this->db->insert("tbabsen", $data);
       if($insert){
