@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Jun 23, 2019 at 09:25 AM
+-- Generation Time: Jun 29, 2019 at 11:33 AM
 -- Server version: 10.3.15-MariaDB
 -- PHP Version: 7.3.6
 
@@ -49,7 +49,8 @@ INSERT INTO `tbabsen` (`id_absen`, `id_jadwal`, `id_qr`, `nim`, `waktu`) VALUES
 (7, 20, 15, 1610304, '2019-06-22 06:50:35'),
 (8, 5, 3, 1610303, '2019-06-22 06:50:46'),
 (9, 21, 12, 1610309, '2019-06-22 06:51:02'),
-(10, 7, 14, 1610306, '2019-06-22 06:51:18');
+(10, 7, 14, 1610306, '2019-06-22 06:51:18'),
+(15, 9, 4, 1610305, '2019-06-29 11:32:29');
 
 -- --------------------------------------------------------
 
@@ -68,7 +69,7 @@ CREATE TABLE `tbdosen` (
 --
 
 INSERT INTO `tbdosen` (`nip`, `nama_dosen`, `password`) VALUES
-(6969, 'Ardi Sanjaea', 'b11d5ece6353d17f85c5ad30e0a02360'),
+(6969, 'Ardi Sanjaya', 'b11d5ece6353d17f85c5ad30e0a02360'),
 (15120001, 'elga asfa', 'b11d5ece6353d17f85c5ad30e0a02360'),
 (15120002, 'M tri anwarudin', 'b11d5ece6353d17f85c5ad30e0a02360'),
 (15120003, 'leon prastya', 'b11d5ece6353d17f85c5ad30e0a02360'),
@@ -232,7 +233,14 @@ INSERT INTO `tbqr` (`id_qr`, `nip`, `qr`) VALUES
 (13, 15120005, '3645ad077cb67b4c5b139472434196e2'),
 (14, 15120006, '9399d914a5ad096881e9e58826606d87'),
 (15, 15120007, 'e5192088740df1e58a77e04993b45eeb'),
-(16, 6969, 'd1c0227d0b3c9f60e87361c0c1c3bf84');
+(16, 6969, 'd1c0227d0b3c9f60e87361c0c1c3bf84'),
+(17, 6969, 'd514f2cd03258fff43e7ae6a71942a64'),
+(18, 6969, 'ca5f0e6384fbc27cf24a22b897823355'),
+(19, 6969, '2702763c11a701171b96076dfe64c64b'),
+(20, 6969, 'dfb75c9bf7fe36a4619692ba2317e920'),
+(21, 6969, 'fac7e367c04991dc20ddd561355c6900'),
+(22, 6969, '46011daeed45e04a6372dfbeb70809bf'),
+(23, 6969, '14f7362816e62495ae78b8c95a9ec948');
 
 --
 -- Indexes for dumped tables
@@ -296,7 +304,7 @@ ALTER TABLE `tbqr`
 -- AUTO_INCREMENT for table `tbabsen`
 --
 ALTER TABLE `tbabsen`
-  MODIFY `id_absen` int(80) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id_absen` int(80) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `tbjadwal`
@@ -320,7 +328,7 @@ ALTER TABLE `tbmatkul`
 -- AUTO_INCREMENT for table `tbqr`
 --
 ALTER TABLE `tbqr`
-  MODIFY `id_qr` int(80) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id_qr` int(80) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- Constraints for dumped tables
@@ -331,8 +339,7 @@ ALTER TABLE `tbqr`
 --
 ALTER TABLE `tbabsen`
   ADD CONSTRAINT `tbabsen_ibfk_1` FOREIGN KEY (`id_jadwal`) REFERENCES `tbjadwal` (`id_jadwal`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `tbabsen_ibfk_2` FOREIGN KEY (`id_qr`) REFERENCES `tbqr` (`id_qr`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `tbabsen_ibfk_3` FOREIGN KEY (`nim`) REFERENCES `tbmahasiswa` (`nim`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `tbabsen_ibfk_2` FOREIGN KEY (`id_qr`) REFERENCES `tbqr` (`id_qr`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `tbjadwal`
