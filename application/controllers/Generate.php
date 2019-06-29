@@ -30,7 +30,7 @@ class Generate extends CI_Controller {
 		      $datainsert = array(
 		        "nip" => $dataJadwal[0]['nip'],
 		        "qr"  => $qrRaw = md5($this->encryption->encrypt($dataJadwal[0]['nama_matkul']."-".$dataJadwal[0]['nama_kelas']."-".$dataJadwal[0]['nip']."-".$dataJadwal[0]['waktu']))
-		        );
+		      );
 		    endforeach;
 		    $lokasiFileQr = $_SERVER['DOCUMENT_ROOT'].'/sensasiq/assets/qrimg/';
 			$file_name = $qrRaw.".png";
@@ -42,7 +42,7 @@ class Generate extends CI_Controller {
 				"qr"		=> $qrRaw,
 			);				
 			$session['file'] = $file_name;
-			$this->session->set_userdata($session);					
+			$this->session->set_userdata('file', $file_name);					
 			$this->load->view('generated', $infoQr);
 		} else {				
 			redirect('generate');
