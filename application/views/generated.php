@@ -37,7 +37,6 @@
 							</li>
 							<li class="nav-item">
 								<a href="<?php echo base_url('generated'); ?>">QR Code</a>
-								<a href="<?php echo $fileQr ?>"> <?php echo $fileQr ?></a>								
 							</li>
 						</ul>
 					</div>
@@ -62,7 +61,7 @@
 	function (){
      	var value = parseInt($('#timer').find('.value').text(), 10);
  			if (value < 2){
- 				value = 10;
+ 				value = 30;
  			} else {
  				value--;
  			}		  
