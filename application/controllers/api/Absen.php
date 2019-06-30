@@ -13,10 +13,18 @@ class Absen extends REST_Controller{
     $this->response($response);
   }
 
-  // hapus data absen menggunakan method delete
+  // menampilkan berdasarkan id_absen tertentu
   public function index_post(){
     $response = $this->AbsenM->the_absen(
         $this->post('id_absen')
+      );
+    $this->response($response);
+  }
+
+  // menampilkan history absen berdasarkan nim tertentu
+  public function absen_post(){
+    $response = $this->AbsenM->riwayat_absen(
+        $this->post('nim')
       );
     $this->response($response);
   }
