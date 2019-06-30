@@ -29,7 +29,7 @@ class Generate extends CI_Controller {
         	foreach ($data as $dataJadwal) :
 		      $datainsert = array(
 		        "nip" => $dataJadwal[0]['nip'],
-		        "qr"  => $qrRaw = md5($this->encryption->encrypt($dataJadwal[0]['nama_matkul']."-".$dataJadwal[0]['nama_kelas']."-".$dataJadwal[0]['nip']."-".$dataJadwal[0]['waktu']))
+		        "qr"  => $qrRaw = $dataJadwal[0]['id_matkul']."-".$dataJadwal[0]['nama_kelas']."-".$dataJadwal[0]['nip']."-".time()
 		      );
 		    endforeach;
 		    $lokasiFileQr = $_SERVER['DOCUMENT_ROOT'].'/sensasiq/assets/qrimg/';
@@ -48,10 +48,10 @@ class Generate extends CI_Controller {
 		}
 	}
 
-	public function generated_refresh($qr){	
+	public function generated_refresh($qr){			
 		$data = array(
 			"nip"	=>	$this->session->nip,
-			"qr"	=>	$qr,			
+			"qr"	=>	$qr
 		);
 
 		$dataQr['dataQr'] = $this->QrM->updateQr($data);			
