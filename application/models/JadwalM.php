@@ -148,7 +148,7 @@ class JadwalM extends CI_Model{
 
   //menampilkan jadwal berdasarkan id_jadwal untuk update
   public function tampil_jadwal_update($id_jadwal){
-    $this->db->select('tbjadwal.id_jadwal as id_jadwal, tbjadwal.nip as nip, tbjadwal.waktu as waktu, tbkelas.nama_kelas as nama_kelas, tbmatkul.nama_matkul as nama_matkul');
+    $this->db->select('tbjadwal.id_jadwal as id_jadwal, tbjadwal.nip as nip, tbjadwal.waktu as waktu, tbkelas.nama_kelas as nama_kelas,tbkelas.id_kelas as id_kelas, tbmatkul.nama_matkul as nama_matkul, tbmatkul.id_matkul as id_matkul');
     $this->db->order_by('waktu', 'ASC');
     $this->db->from('tbjadwal');
     $this->db->join('tbkelas', 'tbkelas.id_kelas = tbjadwal.id_kelas');

@@ -1,6 +1,5 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-
 class Generate extends CI_Controller {
     public function __construct()
     {
@@ -15,13 +14,11 @@ class Generate extends CI_Controller {
 		if (!empty($this->session->file)) {
 			unlink($_SERVER['DOCUMENT_ROOT'].'/sensasiq/assets/qrimg/'.$this->session->file);
 			$this->session->unset_userdata('file');
-
 		}
 		$this->session->set_flashdata('activemenu','generate'); // Untuk active sidebar dinamis
  	   	$data['jadwal'] = $this->JadwalM->tampil_jadwal($this->session->nip);
  	   	$this->load->view('generate', $data);
 	}
-
 	public function generated(){		
 		$id_jadwal = $this->input->post('id_jadwal');
 		if (!empty($id_jadwal)) {			
@@ -48,13 +45,11 @@ class Generate extends CI_Controller {
 			redirect('generate');
 		}
 	}
-
 	public function generated_refresh($qr){	
 		$data = array(
 			"nip"	=>	$this->session->nip,
 			"qr"	=>	$qr,			
 		);
-
 		$dataQr['dataQr'] = $this->QrM->updateQr($data);			
 		foreach ($dataQr as $datanya) :
 		    $dataku = array(
