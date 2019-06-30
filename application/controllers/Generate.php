@@ -39,7 +39,7 @@ class Generate extends CI_Controller {
 				"qr"		=> $qrRaw,
 			);				
 			$session['file'] = $file_name;
-			$this->session->set_userdata('file', $file_name);					
+			$this->session->set_userdata($session);					
 			$this->load->view('generated', $infoQr);
 		} else {				
 			redirect('generate');
