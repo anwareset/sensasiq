@@ -51,6 +51,13 @@ class Jadwal extends REST_Controller{
       );
     $this->response($response);
   }
+
+  public function jadwal_post(){
+    $response = $this->JadwalM->mahasiswa_jadwal(
+        $this->post('nim')
+    );
+    $this->response($response);
+  }
 }
 
 ?>

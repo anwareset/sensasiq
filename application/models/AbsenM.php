@@ -44,7 +44,7 @@ class AbsenM extends CI_Model{
     return $response;
   }
 
-  // mengambil data absen
+  // mengambil data absen berdasarkan id_absen tertentu
   public function the_absen($id_absen){
     if($id_absen == ''){
       $all = $this->db->get("tbabsen")->result();
@@ -58,6 +58,36 @@ class AbsenM extends CI_Model{
       );
       $this->db->where($where);
       $theid = $this->db->get("tbabsen")->result();
+      if($theid){
+        $response['status']=200;
+        $response['error']=false;
+        $response['absen']=$theid;
+        return $response;
+      }else{
+        $response['status']=502;
+        $response['error']=true;
+        $response['message']='Data absen gagal ditampilkan.';
+        return $response;
+      }
+    }
+  }
+
+
+  // mengambil data absen berdasarkan nim tertentu
+  public function riwayat_absen($nim){
+    if($nim == ''){
+      return $this->empty_response();
+    }else{
+      $this->db->select('tbabsen.waktu as waktu, tbmatkul.nama_matkul as nama_matkul, tbdosen.nama_dosen as nama_dosen');
+      $this->db->from('tbjadwal');
+      $this->db->join('tbmatkul','tbmatkul.id_matkul = tbjadwal.id_matkul');
+      $this->db->join('tbdosen', 'tbdosen.nip = tbjadwal.nip');
+      $this->db->join('tbkelas','tbkelas.id_kelas = tbjadwal.id_kelas');
+      $this->db->join('tbabsen','tbabsen.id_jadwal = tbjadwal.id_jadwal');
+      $this->db->join('tbmahasiswa', 'tbmahasiswa.nim = tbabsen.nim');
+      $this->db->join('tbqr', 'tbqr.id_qr = tbabsen.id_qr');
+      $this->db->where('tbabsen.nim', $nim);
+      $theid = $this->db->get()->result();
       if($theid){
         $response['status']=200;
         $response['error']=false;

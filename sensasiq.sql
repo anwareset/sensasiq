@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Jun 29, 2019 at 11:33 AM
+-- Generation Time: Jun 30, 2019 at 09:47 AM
 -- Server version: 10.3.15-MariaDB
 -- PHP Version: 7.3.6
 
@@ -35,22 +35,6 @@ CREATE TABLE `tbabsen` (
   `nim` int(20) NOT NULL,
   `waktu` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data for table `tbabsen`
---
-
-INSERT INTO `tbabsen` (`id_absen`, `id_jadwal`, `id_qr`, `nim`, `waktu`) VALUES
-(2, 9, 4, 1610307, '2019-06-22 06:49:21'),
-(3, 19, 3, 16010301, '2019-06-22 06:49:38'),
-(4, 19, 11, 3253433, '2019-06-22 06:49:49'),
-(5, 15, 10, 1610310, '2019-06-22 06:50:06'),
-(6, 10, 2, 1610302, '2019-06-22 06:50:19'),
-(7, 20, 15, 1610304, '2019-06-22 06:50:35'),
-(8, 5, 3, 1610303, '2019-06-22 06:50:46'),
-(9, 21, 12, 1610309, '2019-06-22 06:51:02'),
-(10, 7, 14, 1610306, '2019-06-22 06:51:18'),
-(15, 9, 4, 1610305, '2019-06-29 11:32:29');
 
 -- --------------------------------------------------------
 
@@ -160,6 +144,8 @@ CREATE TABLE `tbmahasiswa` (
 --
 
 INSERT INTO `tbmahasiswa` (`nim`, `nama_mahasiswa`, `password`, `device_id`, `id_kelas`) VALUES
+(1121, 'Eren Yeager', '7813d1590d28a7dd372ad54b5d29d033', '81dc9bdb52d04dc20036dbd8313ed055', 5),
+(6969, 'Emma Goldman', '1121', '81dc9bdb52d04dc20036dbd8313ed055', 1),
 (1610302, 'Tri Anwarruddin', '1234', 'iilergowgn43oigo', 1),
 (1610303, 'budi', 'sembarang', '987654567', 5),
 (1610304, 'sali', 'sembarang', '78987654456', 2),
@@ -211,36 +197,8 @@ INSERT INTO `tbmatkul` (`id_matkul`, `nama_matkul`) VALUES
 CREATE TABLE `tbqr` (
   `id_qr` int(80) NOT NULL,
   `nip` int(20) NOT NULL,
-  `qr` varchar(80) COLLATE utf8mb4_unicode_ci NOT NULL
+  `qr` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data for table `tbqr`
---
-
-INSERT INTO `tbqr` (`id_qr`, `nip`, `qr`) VALUES
-(2, 15120001, '40048bc8e22b90729f20ac4df7de9b67'),
-(3, 15120001, 'bb61433e5bc8b570c644398a36de5534'),
-(4, 15120002, 'c426086c8a5ecfb67eef35be0119d3e9'),
-(5, 15120002, '07ce8cef15a3a9babead8adcbdf4da35'),
-(6, 15120003, '1e1c6039fda6d4232cfc7d3e431ca975'),
-(7, 15120003, 'ec2c1005a1ac85544f7eed76bb0433f4'),
-(8, 15120003, 'b93d1beec457ac25d4ce1da6b34bad7d'),
-(9, 15120003, '5eb172db5fa164d692da1c45f1e3e1a0'),
-(10, 15120004, '3be82142e6f40e8fb4d50eea1741d8d8'),
-(11, 15120004, '5ab7fc76b3f9a35a322addf957a343a3'),
-(12, 15120004, '3b0d1cff2b550962360dd47dc83b8cd6'),
-(13, 15120005, '3645ad077cb67b4c5b139472434196e2'),
-(14, 15120006, '9399d914a5ad096881e9e58826606d87'),
-(15, 15120007, 'e5192088740df1e58a77e04993b45eeb'),
-(16, 6969, 'd1c0227d0b3c9f60e87361c0c1c3bf84'),
-(17, 6969, 'd514f2cd03258fff43e7ae6a71942a64'),
-(18, 6969, 'ca5f0e6384fbc27cf24a22b897823355'),
-(19, 6969, '2702763c11a701171b96076dfe64c64b'),
-(20, 6969, 'dfb75c9bf7fe36a4619692ba2317e920'),
-(21, 6969, 'fac7e367c04991dc20ddd561355c6900'),
-(22, 6969, '46011daeed45e04a6372dfbeb70809bf'),
-(23, 6969, '14f7362816e62495ae78b8c95a9ec948');
 
 --
 -- Indexes for dumped tables
@@ -328,7 +286,7 @@ ALTER TABLE `tbmatkul`
 -- AUTO_INCREMENT for table `tbqr`
 --
 ALTER TABLE `tbqr`
-  MODIFY `id_qr` int(80) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id_qr` int(80) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
 
 --
 -- Constraints for dumped tables

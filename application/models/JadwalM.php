@@ -75,6 +75,34 @@ class JadwalM extends CI_Model{
     }
   }
 
+  // mengambil data jadwal siswa tertentu
+  public function mahasiswa_jadwal($nim){
+    if($nim == ''){
+      return $this->empty_response();
+    }else{
+      $this->db->select('tbmatkul.nama_matkul as nama_matkul, tbjadwal.waktu as waktu, tbdosen.nama_dosen as nama_dosen');
+      $this->db->group_by('nama_matkul');
+      $this->db->from('tbjadwal');
+      $this->db->join('tbkelas', 'tbkelas.id_kelas = tbjadwal.id_kelas');
+      $this->db->join('tbmahasiswa', 'tbmahasiswa.id_kelas = tbjadwal.id_kelas');
+      $this->db->join('tbdosen', 'tbdosen.nip = tbjadwal.nip');
+      $this->db->join('tbmatkul', 'tbmatkul.id_matkul = tbjadwal.id_matkul');
+      $this->db->where('tbmahasiswa.nim', $nim);
+      $theid = $this->db->get()->result();
+      if($theid){
+        $response['status']=200;
+        $response['error']=false;
+        $response['jadwal']=$theid;
+        return $response;
+      }else{
+        $response['status']=502;
+        $response['error']=true;
+        $response['message']='Data jadwal gagal ditampilkan.';
+        return $response;
+      }
+    }
+  }
+
   
   // hapus data jadwal
   public function delete_jadwal($id_jadwal){
