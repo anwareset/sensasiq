@@ -29,7 +29,7 @@ class Generate extends CI_Controller {
         	foreach ($data as $dataJadwal) :
 		      $datainsert = array(
 		        "nip" => $dataJadwal[0]['nip'],
-		        "qr"  => $qrRaw = $dataJadwal[0]['id_matkul']."-".$dataJadwal[0]['nama_kelas']."-".$dataJadwal[0]['nip']."-".time()
+		        "qr"  => $qrRaw = $dataJadwal[0]['id_jadwal']."-".$dataJadwal[0]['id_matkul']."-".$dataJadwal[0]['nama_kelas']."-".$dataJadwal[0]['nip']."-".time()
 		      );
 		    endforeach;
 		    $lokasiFileQr = $_SERVER['DOCUMENT_ROOT'].'/sensasiq/assets/qrimg/';

@@ -48,6 +48,15 @@ class Qr extends REST_Controller{
       );
     $this->response($response);
   }
+
+  //pencocokan
+  public function cocok_post(){
+    $response = $this->QrM->cocok_qr(
+      $this->post('qr')
+      );
+   $this->response($response); 
+  }
+  
 }
 
 ?>

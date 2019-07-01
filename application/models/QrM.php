@@ -36,6 +36,30 @@ class QrM extends CI_Model {
     }
   }
 
+  //pencocok
+  public function cocok_qr($qr){
+    if($qr == ''){
+      return $this->empty_response();
+    }else{
+      $where = array(
+        "qr"=>$qr
+      );
+      $this->db->where($where);
+      $theid = $this->db->get("tbqr")->result();
+      if($theid){
+        $response['status']=200;
+        $response['error']=false;
+        $response['qr']=$theid;
+        return $response;
+      }else{
+        $response['status']=502;
+        $response['error']=true;
+        $response['message']='Data qr gagal ditampilkan.';
+        return $response;
+      }
+    }
+  }
+
   // mengambil semua data qr
   public function all_qr(){
     $all = $this->db->get("tbqr")->result();
