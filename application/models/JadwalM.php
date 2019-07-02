@@ -90,10 +90,7 @@ class JadwalM extends CI_Model{
       $this->db->where('tbmahasiswa.nim', $nim);
       $theid = $this->db->get()->result();
       if($theid){
-        $response['status']=200;
-        $response['error']=false;
-        $response['jadwal']=$theid;
-        return $response;
+        return $theid;
       }else{
         $response['status']=502;
         $response['error']=true;
