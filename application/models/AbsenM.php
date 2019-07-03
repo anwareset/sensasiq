@@ -89,10 +89,7 @@ class AbsenM extends CI_Model{
       $this->db->where('tbabsen.nim', $nim);
       $theid = $this->db->get()->result();
       if($theid){
-        $response['status']=200;
-        $response['error']=false;
-        $response['absen']=$theid;
-        return $response;
+        return $theid;
       }else{
         $response['status']=502;
         $response['error']=true;

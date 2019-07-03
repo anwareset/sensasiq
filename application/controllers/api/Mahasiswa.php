@@ -37,10 +37,7 @@ class Mahasiswa extends REST_Controller{
   public function update_put(){
     $response = $this->MahasiswaM->update_mahasiswa(
         $this->put('nim'),
-        $this->put('nama_mahasiswa'),
-        $this->put('password'),
-        $this->put('device_id'),
-        $this->put('id_kelas')
+        $this->put('password')
       );
     $this->response($response);
   }

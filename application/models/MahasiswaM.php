@@ -100,18 +100,15 @@ class MahasiswaM extends CI_Model{
   }
 
   // update mahasiswa
-  public function update_mahasiswa($nim, $nama_mahasiswa, $password, $device_id, $id_kelas){
-    if($nim == '' || empty($nama_mahasiswa) || empty($password) || empty($device_id) || empty($id_kelas) ){
+  public function update_mahasiswa($nim, $password){
+    if(empty($nim) || empty($password)){
       return $this->empty_response();
     }else{
       $where = array(
         "nim"=>$nim
       );
       $set = array(
-        "nama_mahasiswa"=>$nama_mahasiswa,
-        "password"=>$password,
-        "device_id"=>$device_id,
-        "id_kelas"=>$id_kelas
+        "password"=>$password
       );
       $this->db->where($where);
       $update = $this->db->update("tbmahasiswa",$set);
