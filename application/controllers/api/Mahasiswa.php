@@ -42,6 +42,15 @@ class Mahasiswa extends REST_Controller{
     $this->response($response);
   }
 
+  // mendaftarkan Device ID jika belum terdaftar
+  public function device_put(){
+    $response = $this->MahasiswaM->device_mahasiswa(
+        $this->put('nim'),
+        $this->put('device_id')
+      );
+    $this->response($response);
+  }
+
   // hapus data mahasiswa menggunakan method delete
   public function delete_delete(){
     $response = $this->MahasiswaM->delete_mahasiswa(

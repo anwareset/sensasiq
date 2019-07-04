@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Jun 30, 2019 at 09:47 AM
+-- Generation Time: Jul 04, 2019 at 01:08 PM
 -- Server version: 10.3.15-MariaDB
 -- PHP Version: 7.3.6
 
@@ -35,6 +35,27 @@ CREATE TABLE `tbabsen` (
   `nim` int(20) NOT NULL,
   `waktu` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `tbabsen`
+--
+
+INSERT INTO `tbabsen` (`id_absen`, `id_jadwal`, `id_qr`, `nim`, `waktu`) VALUES
+(16, 10, 46, 6969, '2019-06-30 11:02:43'),
+(17, 8, 46, 1121, '2019-06-30 11:03:00'),
+(18, 10, 46, 1610302, '2019-06-30 11:03:48'),
+(20, 5, 55, 1121, '2019-07-01 11:48:01'),
+(23, 7, 56, 1121, '2019-07-01 12:08:37'),
+(24, 7, 57, 1121, '2019-07-01 12:09:02'),
+(25, 7, 57, 1121, '2019-07-01 12:09:15'),
+(26, 5, 59, 1121, '2019-07-02 08:17:00'),
+(27, 5, 59, 1121, '2019-07-02 08:17:52'),
+(28, 7, 60, 1121, '2019-07-02 08:29:54'),
+(29, 5, 61, 1121, '2019-07-02 08:38:42'),
+(30, 5, 62, 1121, '2019-07-02 08:42:27'),
+(31, 5, 62, 1121, '2019-07-02 08:43:03'),
+(32, 5, 62, 1121, '2019-07-02 08:43:46'),
+(33, 5, 62, 1121, '2019-07-02 08:48:29');
 
 -- --------------------------------------------------------
 
@@ -99,7 +120,9 @@ INSERT INTO `tbjadwal` (`id_jadwal`, `id_matkul`, `id_kelas`, `nip`, `waktu`) VA
 (18, 14, 3, 15120003, '2019-06-28 00:00:00'),
 (19, 10, 3, 15120003, '2019-06-28 00:00:00'),
 (20, 13, 5, 15120004, '2019-06-12 00:00:00'),
-(21, 4, 3, 15120003, '2019-06-27 00:00:00');
+(21, 4, 3, 15120003, '2019-06-27 00:00:00'),
+(22, 2, 1, 15120008, '2019-06-19 12:00:00'),
+(23, 3, 1, 15120009, '2019-06-30 14:00:00');
 
 -- --------------------------------------------------------
 
@@ -135,7 +158,7 @@ CREATE TABLE `tbmahasiswa` (
   `nim` int(20) NOT NULL,
   `nama_mahasiswa` varchar(60) COLLATE utf8mb4_unicode_ci NOT NULL,
   `password` varchar(80) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `device_id` varchar(80) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `device_id` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `id_kelas` int(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -144,9 +167,13 @@ CREATE TABLE `tbmahasiswa` (
 --
 
 INSERT INTO `tbmahasiswa` (`nim`, `nama_mahasiswa`, `password`, `device_id`, `id_kelas`) VALUES
-(1121, 'Eren Yeager', '7813d1590d28a7dd372ad54b5d29d033', '81dc9bdb52d04dc20036dbd8313ed055', 5),
+(666, 'Levi Ackerman', 'fae0b27c451c728867a567e8c1bb4e53', '6afaa4921f8fa092', 6),
+(1121, 'Eren Yeager', '3a15c7d0bbe60300a39f76f8a5ba6896', NULL, 5),
+(2110, 'Reza Darmawan', 'c4ca4238a0b923820dcc509a6f75849b', NULL, 4),
+(6000, 'Fery Setiawan', 'c4ca4238a0b923820dcc509a6f75849b', NULL, 3),
+(6600, 'Elga Asfa', 'c4ca4238a0b923820dcc509a6f75849b', NULL, 2),
 (6969, 'Emma Goldman', '1121', '81dc9bdb52d04dc20036dbd8313ed055', 1),
-(1610302, 'Tri Anwarruddin', '1234', 'iilergowgn43oigo', 1),
+(8100, 'Muhammad Tri Anwarruddin', 'c4ca4238a0b923820dcc509a6f75849b', NULL, 1),
 (1610303, 'budi', 'sembarang', '987654567', 5),
 (1610304, 'sali', 'sembarang', '78987654456', 2),
 (1610306, 'lely', 'sembarang', '3456765434', 3),
@@ -199,6 +226,30 @@ CREATE TABLE `tbqr` (
   `nip` int(20) NOT NULL,
   `qr` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `tbqr`
+--
+
+INSERT INTO `tbqr` (`id_qr`, `nip`, `qr`) VALUES
+(45, 6969, '4993cba4a9075df608e036938e8911d6'),
+(46, 6969, '4c005d446727145f6579e8d81d8fac66'),
+(47, 6969, '702a26450927312a773e7bcf722911d1'),
+(48, 6969, '2-3B-6969-1561912458'),
+(49, 6969, '7-2-3B-6969-1561977103'),
+(50, 6969, '7-2-3B-6961561977973'),
+(51, 6969, '5-1-3A-6961561979709'),
+(52, 6969, '7-2-3B-6961561980001'),
+(53, 6969, '5-1-3A-6961561980898'),
+(54, 6969, '5-1-3A-6961561981660'),
+(55, 6969, '5-1-3A-6969-1561981672'),
+(56, 6969, '7-2-3B-6969-1561982911'),
+(57, 6969, '7-2-3B-6961561982967'),
+(58, 6969, '5-1-3A-6961562055390'),
+(59, 6969, '5-1-3A-6961562055479'),
+(60, 6969, '7-2-3B-6969-1562056189'),
+(61, 6969, '5-1-3A-6961562056749'),
+(62, 6969, '5-1-3A-6961562057335');
 
 --
 -- Indexes for dumped tables
@@ -262,13 +313,13 @@ ALTER TABLE `tbqr`
 -- AUTO_INCREMENT for table `tbabsen`
 --
 ALTER TABLE `tbabsen`
-  MODIFY `id_absen` int(80) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id_absen` int(80) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 
 --
 -- AUTO_INCREMENT for table `tbjadwal`
 --
 ALTER TABLE `tbjadwal`
-  MODIFY `id_jadwal` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id_jadwal` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT for table `tbkelas`
@@ -286,7 +337,7 @@ ALTER TABLE `tbmatkul`
 -- AUTO_INCREMENT for table `tbqr`
 --
 ALTER TABLE `tbqr`
-  MODIFY `id_qr` int(80) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
+  MODIFY `id_qr` int(80) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=63;
 
 --
 -- Constraints for dumped tables

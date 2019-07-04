@@ -99,7 +99,7 @@ class MahasiswaM extends CI_Model{
     }
   }
 
-  // update mahasiswa
+  // update password mahasiswa
   public function update_mahasiswa($nim, $password){
     if(empty($nim) || empty($password)){
       return $this->empty_response();
@@ -109,6 +109,33 @@ class MahasiswaM extends CI_Model{
       );
       $set = array(
         "password"=>$password
+      );
+      $this->db->where($where);
+      $update = $this->db->update("tbmahasiswa",$set);
+      if($update){
+        $response['status']=200;
+        $response['error']=false;
+        $response['message']='Data mahasiswa diubah.';
+        return $response;
+      }else{
+        $response['status']=502;
+        $response['error']=true;
+        $response['message']='Data mahasiswa gagal diubah.';
+        return $response;
+      }
+    }
+  }
+
+  // update device id mahasiswa
+  public function device_mahasiswa($nim, $device_id){
+    if(empty($nim) || empty($device_id)){
+      return $this->empty_response();
+    }else{
+      $where = array(
+        "nim"=>$nim
+      );
+      $set = array(
+        "device_id"=>$device_id
       );
       $this->db->where($where);
       $update = $this->db->update("tbmahasiswa",$set);
