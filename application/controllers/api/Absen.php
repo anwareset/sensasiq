@@ -58,6 +58,16 @@ class Absen extends REST_Controller{
       );
     $this->response($response);
   }
+
+  // cek apakah sudah absen
+  public function cekabsen_post(){
+    $response = $this->AbsenM->cek_absen(
+        $this->post('nim'),
+        $this->post('id_qr'),
+        $this->post('id_jadwal')
+      );
+    $this->response($response);
+  }
 }
 
 ?>

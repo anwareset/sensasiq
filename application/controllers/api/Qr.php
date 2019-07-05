@@ -53,7 +53,7 @@ class Qr extends REST_Controller{
   public function cocok_post(){
     $response = $this->QrM->cocok_qr(
       $this->post('qr')
-      );
+    );
    $this->response($response); 
   }
   

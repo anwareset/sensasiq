@@ -99,6 +99,32 @@ class AbsenM extends CI_Model{
     }
   }
 
+  // cek apakah sudah absen
+  public function cek_absen($nim, $id_qr, $id_jadwal){
+    if(empty($nim) || empty($id_qr) || empty($id_jadwal)){
+      return $this->empty_response();
+    }else{
+      $where = array(
+        "nim"=>$nim,
+        "id_qr"=>$id_qr,
+        "id_jadwal"=>$id_jadwal
+      );
+      $this->db->where($where);
+      $theid = $this->db->get("tbabsen")->result();
+      if($theid){
+        $response['status']=200;
+        $response['error']=false;
+        $response['absen']=$theid;
+        return $response;
+      }else{
+        $response['status']=502;
+        $response['error']=true;
+        $response['message']='Data absen gagal ditampilkan.';
+        return $response;
+      }
+    }
+  }
+
   
   // hapus data absen
   public function delete_absen($id_absen){
