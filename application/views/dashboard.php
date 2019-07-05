@@ -182,15 +182,22 @@ var statisticsChart = new Chart(ctx, {
 			<?php 
 			foreach ($riwayat as $r):
 			$nip = $r['nip'];
-			for ($i=0; $i<12; $i++){
-			$res[$i] = $this->db->query("SELECT a.* from tbabsen a,tbjadwal j,tbdosen d where a.id_jadwal=j.id_jadwal and j.nip=d.nip and d.nip=$nip and a.waktu like concat(year(curdate()),'-_$i%')");
-			$bulan[$i] = $res[$i]->num_rows();
+			endforeach;
+			for ($i=1; $i<13; $i++){
+				if ($i < 10) {
+					$res[$i] = $this->db->query("SELECT a.* from tbabsen a,tbjadwal j,tbdosen d where a.id_jadwal=j.id_jadwal and j.nip=d.nip and d.nip=$nip and a.waktu like concat(year(curdate()),'-0$i%')");
+					$bulan[$i] = $res[$i]->num_rows();
+				}
+				elseif($i>9 && $i<13){
+					$res[$i] = $this->db->query("SELECT a.* from tbabsen a,tbjadwal j,tbdosen d where a.id_jadwal=j.id_jadwal and j.nip=d.nip and d.nip=$nip and a.waktu like concat(year(curdate()),'-$i%')");
+					$bulan[$i] = $res[$i]->num_rows();
+				}
 			}
-			echo $bulan[0];
-			for($i = 1;$i<12;$i++){
+			echo $bulan[1];
+			for($i = 2;$i<13;$i++){
 				echo ",".$bulan[$i];
 			}
-			endforeach;
+			
 			?> 
 			]
 		}]
