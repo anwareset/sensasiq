@@ -59,7 +59,9 @@
 											<tbody>
 												<?php foreach ($jadwal as $datajadwal) : ?>
 												<tr>
-													<td><?php echo $datajadwal['waktu']; ?></td>
+													<td><?php 
+													setlocale(LC_TIME, 'IND');
+													echo strftime('%A %H:%M', strtotime($datajadwal['waktu'])); ?></td>
 								                    <td><?php echo $datajadwal['nama_matkul']; ?></td>
 								                    <td><?php echo $datajadwal['nama_kelas']; ?></td>
 													<td>
