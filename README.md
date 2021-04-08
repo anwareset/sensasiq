@@ -1,13 +1,6 @@
 # SENSASIQ - Modul Web QR Code Generator
 Modul QR Code Generator berbasis Web dari SENSASIQ
 
-
-## Contents
-- [APA ITU SENSASIQ?](#apa-itu-sensasiq)
-  - [Tentang Repositori](#tentang-repositori)
-- [REQUIREMENTS](#requirements)
-- [INSTALLATION](#installation)
-
 # Apa itu SENSASIQ?
 SENSASIQ atau Solusi Absensi Cerdas Anti Curang Bebasis QR Code merupakan sebuah perangkat lunak untuk mengatasi berbagai hal dalam sistem absensi. Penggunaan QR Code dan berbagai metode terkomputerisasi dilakukan untuk merubah segala usaha absensi tradisional agar mencapai sebuah sistem absensi yang lebih baik.
 
